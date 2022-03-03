@@ -1,0 +1,208 @@
+@font-face {
+    /*Use this font name to refer to this file for all CSS here*/
+    font-family: Dyslexic-Friendly;
+    src: url(/assets/fonts/OpenDyslexic-Regular.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    /*font-family: Dyslexic-Friendly;*/
+}
+#canvas {
+    border: 2px solid black;
+    margin-top: .5%;
+}
+html {
+    --anim-timing: .3s;
+}
+body {
+    min-width: 400px;
+}
+.card{
+    margin: 1%;
+    text-align: center;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: var(--anim-timing) transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.card-title {
+    font-size: 1.1em;
+}
+.canvasControls{
+    display: flex;
+    align-items: center;
+}
+
+.canvasControls * {
+    margin: .3em;
+}
+#cardRow button {
+
+    padding: 0;
+}
+#cardRow {
+    margin: 3rem;
+}
+
+#canvas-modal-dialog{
+    max-width: fit-content;
+}
+.form-control-color{
+    max-width: 3em;
+    max-height: fit-content;
+    padding: .375rem;
+}
+
+.navbar-nav{
+    justify-content: space-between;
+    width: 80vw;
+}
+
+.login-grid {
+    margin-top: 4em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.login-forms {
+    margin: auto;
+    width: 30em;
+    padding: 1.5em;
+}
+.login-forms *{
+    margin-bottom: 1em;
+}
+
+.login-text {
+    margin: auto;
+    text-align: center;
+    max-width: 50em;
+    min-width: 20em;
+}
+
+.active a {
+    font-weight: bold;
+    color: #e7db2f !important;
+}
+
+.nav-item a:hover {
+    color: #e7db2f !important;
+    font-weight: bold;
+    transition: .15s;
+}
+
+
+#open-modal-btn {
+    margin: 1em;
+}
+
+.main-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-body.mobile-body {
+    display: block;
+}
+
+.main-body .card {
+    min-width: 8em;
+}
+
+.main-body .document-opener {
+    max-width: 70vw;
+    margin:  0 1em;
+}
+
+.main-body.mobile-body .document-opener {
+    max-width: 90vw;
+    margin: auto;
+}
+
+.document-opener h4:first-child{
+    margin-bottom: 0em;
+}
+.document-opener h4{
+    margin: 1em;
+}
+
+.document-opener .card-slider .card-container{
+    display: flex;
+}
+
+.document-opener .card-slider {
+    overflow: auto;
+    border: 2px solid black;
+    padding: 1.125em;
+    border-radius: 30px;
+}
+
+.quick-refrence {
+    width: 30vw;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: auto;
+    padding-right: 5vw;
+}
+
+.main-body.mobile-body .quick-refrence {
+    width: 85vw;
+}
+
+.quick-refrence .title {
+    max-width: fit-content;
+    margin: auto;
+    margin-top: .2em;
+    margin-bottom: .2em;
+}
+
+.quick-refrence .refrence-list {
+    display: grid;
+    gap: 5.32em;
+    padding: 2em;
+    white-space: nowrap;
+}
+
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    color:#e7db2f;
+}
+.refrence-list li:hover {
+    transform: scale(1.02);
+    transition: var(--anim-timing);
+}
+
+
+.tooltip {
+    background-color: #e7db2f;
+    font-size: 2em;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: gainsboro;
+    padding: 10px;
+}
+
+.container {
+    margin-top: 1em;
+}
