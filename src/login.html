@@ -19,34 +19,43 @@
 
 <body>
     <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/src/home_NA.html">
-            <img src="/assets/Logo.png" height="65" alt="Gra𝑓sτaτe">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Help</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/src/testZone.html">Test Zone</a>
-                </li>
-                <li class="nav-item">
-                    <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
-                    <button class="btn active btn-outline-success" type="submit">Login</button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					<b>GiraffeState</b>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="/src/home_NA.html">Home</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link" href="/src/cloudDocuments_NA.html">Cloud Giraffes</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Help</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/src/testZone.html">Start Drawing</a>
+						</li>
+						<li class="nav-item">
+							<!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
+							<a class="btn btn-outline-success" type="submit" href="/src/login.html">Login</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
     <div class="login-grid">
-        <div class="login-forms">
+        <form action="/src/scripts/login.php" class="login-forms">
             <h2>Login</h2>
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -56,10 +65,10 @@
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
-            <button type="button" class="btn btn-primary">Login</button>
-        </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
         <div class="login-text">
-            <h3>What is grafstate?</h3>
+            <h3>What is GiraffeState?</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ornare arcu odio ut sem. Urna nunc id cursus metus aliquam eleifend mi. Diam donec
                 adipiscing tristique risus nec feugiat in fermentum. Arcu odio ut sem nulla pharetra diam sit amet nisl.
