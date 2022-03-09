@@ -2,6 +2,8 @@
 include("config.php");
 session_start();
 $error = "";
+$createError = "";
+$acctCreated = "Your account was Created, please log in";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
 
@@ -17,10 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($count == 1) {
         $_SESSION['login_user'] = $myusername;
-
         header("location: home.php");
     } else {
         $error = "Your Login Name or Password is invalid";
+        $acctCreated = "";
+
     }
 }
 ?>
@@ -34,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="scripts/login.js" defer></script>
 </head>
 
 <body>
@@ -48,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="src/home_NA.html">Home</a>
+                        <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="src/cloudDocuments_NA.html">Cloud Giraffes</a>
@@ -72,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
     <div class="login-grid">
         <!-- Login Form-------------------------------------------------------->
-        <form action="" class="login-forms" method="POST">
+        <form action="" data-form='login' class="login-forms" method="POST">
             <h2>Login</h2>
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" name="username" id="floatingInput" placeholder="name@example.com">
@@ -82,25 +86,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
-            <div style="font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+            <div style="color:#0a7300; margin-top:10px"><?php echo $acctCreated; ?></div>
+            <div style="color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+            <p>Create a new account <span data-function="register" class="clickable">here</span></p>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <!-- Register form----------------------------------------------------->
-        <form action="" class="login-forms" method="POST">
-            <h2>Login</h2>
+        <form action="" data-form="register" class="login-forms d-none" method="POST">
+            <h2>Register</h2>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingFName">
+                <label for="floatingFName">First Name</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control">
+                <label for="floatingLName">Last Name</label>
+            </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" name="username" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control" name="email"  placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+                <label for="floatingRPassword">Password</label>
             </div>
-            <div style="font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <div class="form-floating">
+                <input type="password" class="form-control" name="confirmPassword" placeholder="Password">
+                <label for="floatingConfirmPassword">Confim Password</label>
+            </div>
+            <div style="color:#cc0000; margin-top:10px"><?php echo $createError; ?></div>
+            <p>Already have an account? <span data-function="login" class="clickable">Log in</span></p>
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
 
-        <div class="login-text">
+        <div data-text="login" class="login-text">
             <h3>What is GiraffeState?</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ornare arcu odio ut sem. Urna nunc id cursus metus aliquam eleifend mi. Diam donec
