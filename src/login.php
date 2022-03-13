@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="src/cloudDocuments_NA.html">Cloud Giraffes</a>
+                        <a class="nav-link" href="#">Cloud Giraffes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Help</a>
