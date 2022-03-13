@@ -5,6 +5,9 @@ $errors = [];
 if (!isset($_SESSION['created_account'])) {
     $_SESSION['created_account'] = "";
 }
+if (!isset($_SESSION['reset_password'])) {
+    $_SESSION['reset_password'] = "";
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
@@ -24,10 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             array_push($error,"Your Login Name or Password is invalid");
             $_SESSION['created_account'] = "";
+            $_SESSION['reset_password'] = "";
+
         }
     } else {
         array_push($error,"Your Login Name or Password is invalid");
         $_SESSION['created_account'] = "";
+        $_SESSION['reset_password'] = "";
     }
 }
 ?>
@@ -90,7 +96,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
-            <div style="color:#0a7300; margin-top:10px"><?php echo $_SESSION['created_account'] ?></div>
+            <div style="color:#0a7300; margin-top:10px"><?php echo $_SESSION['created_account'];
+            echo $_SESSION['reset_password']?></div>
             <?php include("messages.php")?>
             <p>Create a new account <span data-function="register" class="clickable">here</span></p>
             <p>Forgot your password? <a href="resetPass.php" style="color:#e7db2f">Reset Password</a></p>

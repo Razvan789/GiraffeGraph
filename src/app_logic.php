@@ -56,6 +56,9 @@ if (isset($_POST['new_pass'])) {
             $new_pass =  password_hash($new_pass, PASSWORD_DEFAULT);
             $sql = "UPDATE logintable SET password='$new_pass' WHERE email='$email'";
             $results = mysqli_query($db, $sql);
+            $sql = "DELETE FROM reset_password WHERE token='$token'";
+            mysqli_query($db, $sql);
+            $_SESSION['reset_password'] = "Your password has been reset";
             header('location: login.php');
         }
     }
