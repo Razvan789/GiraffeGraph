@@ -57,7 +57,7 @@ include('app_logic.php');
         </div>
     </nav>
     <div class="center-self center-children pt-5">
-        <form method="post" action="send_link.php">
+        <form method="post">
             <h2 class="mb-5 mx-5">Enter Email Address To Send Password Link</h2>
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" name="email" placeholder="name@example.com">

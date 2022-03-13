@@ -1,8 +1,7 @@
 <?php
 include("config.php");
 session_start();
-$error = "";
-$createError = "";
+$errors = [];
 if (!isset($_SESSION['created_account'])) {
     $_SESSION['created_account'] = "";
 }
@@ -23,11 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['login_user'] = $myusername;
             header("location: home.php");
         } else {
-            $error = "Your Login Name or Password is invalid";
+            array_push($error,"Your Login Name or Password is invalid");
             $_SESSION['created_account'] = "";
         }
     } else {
-        $error = "Your Login Name or Password is invalid";
+        array_push($error,"Your Login Name or Password is invalid");
         $_SESSION['created_account'] = "";
     }
 }
@@ -92,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="floatingPassword">Password</label>
             </div>
             <div style="color:#0a7300; margin-top:10px"><?php echo $_SESSION['created_account'] ?></div>
-            <div style="color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
+            <?php include("messages.php")?>
             <p>Create a new account <span data-function="register" class="clickable">here</span></p>
             <p>Forgot your password? <a href="resetPass.php" style="color:#e7db2f">Reset Password</a></p>
             <button type="submit" class="btn btn-primary">Login</button>
@@ -120,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
                 <label for="floatingConfirmPassword">Confim Password</label>
             </div>
-            <div style="color:#cc0000; margin-top:10px"><?php echo $createError; ?></div>
+            <?php include("messages.php")?>
             <p>Already have an account? <span data-function="login" class="clickable">Log in</span></p>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>

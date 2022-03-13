@@ -1,3 +1,5 @@
+<?php include("app_logic.php")?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +49,7 @@
         </div>
     </nav>
     <div class="center-self center-children my-5">
-        <form method="post" action="send_link.php">
+        <form method="post">
             <h2 class="mb-5 mx-5">Enter New Password</h2>
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" name="newPassword" placeholder="New Password">
@@ -58,7 +60,7 @@
                 <label for="floatingInput">Re-type Password</label>
             </div>
             <?php include('messages.php'); ?>
-            <input class="btn btn-primary" type="submit" name="submit_email">
+            <input class="btn btn-primary" type="submit" name="new_pass">
         </form>
     </div>
 </body>
