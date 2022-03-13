@@ -1,15 +1,4 @@
-@font-face {
-    /*Use this font name to refer to this file for all CSS here*/
-    font-family: Dyslexic-Friendly;
-    src: url(/assets/fonts/OpenDyslexic-Regular.otf);
-}
 
-*{
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    /*font-family: Dyslexic-Friendly;*/
-}
 #canvas {
     border: 2px solid black;
     margin-top: .5%;
@@ -221,3 +210,17 @@ span.clickable {
     color:#e7db2f;
     cursor:pointer;
 }
+
+.center-self {
+    margin: auto;
+    width: 30vw;
+}
+
+.center-children {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+

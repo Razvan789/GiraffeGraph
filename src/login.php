@@ -3,27 +3,32 @@ include("config.php");
 session_start();
 $error = "";
 $createError = "";
-$acctCreated = "Your account was Created, please log in";
+if (!isset($_SESSION['created_account'])) {
+    $_SESSION['created_account'] = "";
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
 
-    $myusername = mysqli_real_escape_string($db, $_POST['username']);
+    $myusername = mysqli_real_escape_string($db, $_POST['email']);
     $mypassword = mysqli_real_escape_string($db, $_POST['password']);
 
-    $sql = "SELECT id FROM logintable WHERE Email = '$myusername' and Password = '$mypassword'";
+
+    $sql = "SELECT * FROM logintable WHERE Email = '$myusername'";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $count = mysqli_num_rows($result);
-
-    // If result matched $myusername and $mypassword, table row must be 1 row
-
-    if ($count == 1) {
-        $_SESSION['login_user'] = $myusername;
-        header("location: home.php");
+    if ($row != NULL) {
+        $hashedPass = $row['Password'];
+        if (password_verify($mypassword, $hashedPass)) {
+            $_SESSION['login_user'] = $myusername;
+            header("location: home.php");
+        } else {
+            $error = "Your Login Name or Password is invalid";
+            $_SESSION['created_account'] = "";
+        }
     } else {
         $error = "Your Login Name or Password is invalid";
-        $acctCreated = "";
-
+        $_SESSION['created_account'] = "";
     }
 }
 ?>
@@ -79,31 +84,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" data-form='login' class="login-forms" method="POST">
             <h2>Login</h2>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" name="username" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
                 <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Password</label>
             </div>
-            <div style="color:#0a7300; margin-top:10px"><?php echo $acctCreated; ?></div>
+            <div style="color:#0a7300; margin-top:10px"><?php echo $_SESSION['created_account'] ?></div>
             <div style="color:#cc0000; margin-top:10px"><?php echo $error; ?></div>
             <p>Create a new account <span data-function="register" class="clickable">here</span></p>
+            <p>Forgot your password? <a href="resetPass.php" style="color:#e7db2f">Reset Password</a></p>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
         <!-- Register form----------------------------------------------------->
-        <form action="" data-form="register" class="login-forms d-none" method="POST">
+        <form action="register.php" data-form="register" class="login-forms d-none" method="POST">
             <h2>Register</h2>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingFName">
+                <input type="text" class="form-control" id="floatingFName" name="fname">
                 <label for="floatingFName">First Name</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="lname">
                 <label for="floatingLName">Last Name</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" name="email"  placeholder="name@example.com">
+                <input type="email" class="form-control" name="email" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
             </div>
             <div class="form-floating">
@@ -111,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="floatingRPassword">Password</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" name="confirmPassword" placeholder="Password">
+                <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
                 <label for="floatingConfirmPassword">Confim Password</label>
             </div>
             <div style="color:#cc0000; margin-top:10px"><?php echo $createError; ?></div>
