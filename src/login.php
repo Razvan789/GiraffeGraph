@@ -22,13 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['login_user'] = $myusername;
             header("location: home.php");
         } else {
-            array_push($error,"Your Login Name or Password is invalid");
+            array_push($errors,"Your Login Name or Password is invalid");
             $createdAccount = "";
             $resetPassword = "";
 
         }
     } else {
-        array_push($error,"Your Login Name or Password is invalid");
+        array_push($errors,"Your Login Name or Password is invalid");
         $createdAccount = "";
         $resetPassword = "";
     }
