@@ -96,7 +96,6 @@ body {
 }
 
 .main-body {
-    width: 90vw;
     display: grid;
     grid-template-columns: 2fr 1fr;
 }
@@ -115,7 +114,7 @@ body {
 }
 
 .main-body.mobile-body .document-opener {
-    max-width: 90vw;
+    width: 90vw;
     margin: auto;
 }
 
