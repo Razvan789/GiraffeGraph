@@ -1,5 +1,7 @@
 <?php include("app_logic.php")?>
-
+<?php
+    array_push($errors, "Token not valid");
+?>
 <!DOCTYPE html>
 <html lang="en">
 

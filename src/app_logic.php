@@ -7,7 +7,16 @@ $user_id = "";
   Accept email of user whose password is to be reset
   Send email to user to reset their password
 */
+if(isset($_GET['error'])) {
+    switch($_GET['error']){
+        case "invalidToken":
+            array_push($errors, "The Token was invalid, please enter email again");
+            break;
+    }
+}
+
 if (isset($_POST['submit_email'])) {
+    $errors = [];
     $email = mysqli_real_escape_string($db, $_POST['email']);
     // ensure that the user exists on our system
     $query = "SELECT Email FROM logintable WHERE Email='$email'";
@@ -16,7 +25,7 @@ if (isset($_POST['submit_email'])) {
     if (empty($email)) {
         array_push($errors, "Your email is required");
     } else if (mysqli_num_rows($results) <= 0) {
-        array_push($errors, "Sorry, no user exists on our system with that email");
+        array_push($errors, "Sorry, no user exists on our system with the email: <b>$email</b>");
     }
     // generate a unique random token of length 100
     $token = bin2hex(random_bytes(20));
@@ -33,11 +42,24 @@ if (isset($_POST['submit_email'])) {
         $msg = wordwrap($msg, 70);
         $headers = "From: password-reset@GiraffeState.com";
         mail($to, $subject, $msg, $headers);
-        array_push($errors, "We sent a password Reset to your email");
+        array_push($errors, "<span style='color:green;'>We sent a password Reset to your email</span>");
     }
 }
 
+
+
 // ENTER A NEW PASSWORD
+if(isset($_GET['token'])) {
+    $token = $_GET['token'];
+    $sql = "SELECT * FROM reset_password WHERE token='$token' LIMIT 1";
+    $results = mysqli_query($db, $sql);
+    $count = mysqli_num_rows($results);
+    //Checks to see if the token even exists    
+    if($count < 1) {
+        header("location: resetPass.php?error=invalidToken");
+    }
+}
+
 if (isset($_POST['new_pass'])) {
     $new_pass = mysqli_real_escape_string($db, $_POST['newPassword']);
     $new_pass_c = mysqli_real_escape_string($db, $_POST['confirmNewPassword']);
@@ -63,3 +85,4 @@ if (isset($_POST['new_pass'])) {
         }
     }
 }
+
