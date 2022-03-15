@@ -27,39 +27,7 @@
 
 	<body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="../assets/GiraffeStateLogo2.0WhiteOutline.png" alt="Giraffes" height="75">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="home.php">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">Cloud Giraffes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/src/testZone.html">Start Drawing</a>
-                    </li>
-                    <li class="nav-item">
-                        <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
-                        <a class="btn btn-outline-danger" type="submit" href="logout.php">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include("navbar.php")?>
 
     <div class="main-body">
         <div class="document-opener">
