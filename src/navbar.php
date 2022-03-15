@@ -16,8 +16,12 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">Cloud Giraffes</a>
+                        <a class="nav-link" href="#">Gallery</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">My Giraffes</a>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="#">Help</a>
                     </li>
@@ -25,7 +29,7 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/src/testZone.html">Start Drawing</a>
+                        <a class="nav-link" href="#">Start Drawing</a>
                     </li>
                     <li class="nav-item">
                         <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
@@ -50,6 +54,9 @@ if ($loggedIn) : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="home.php">Home</a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#">Gallery</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Help</a>
                     </li>
@@ -57,7 +64,7 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/src/testZone.html">Start Drawing</a>
+                        <a class="nav-link" href="#">Start Drawing</a>
                     </li>
                     <li class="nav-item">
                         <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
