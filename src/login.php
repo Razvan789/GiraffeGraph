@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashedPass = $row['Password'];
         if (password_verify($mypassword, $hashedPass)) {
             $_SESSION['login_user'] = $myusername;
-            header("location: $host/$site/src/home.php");
+            header("location: home.php");
         } else {
             array_push($errors, "Your Login Name or Password is invalid");
             $createdAccount = "";
