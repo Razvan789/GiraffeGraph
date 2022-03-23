@@ -9,26 +9,25 @@ $resetPassword = isset($_SESSION['reset_password']) ? $_SESSION['reset_password'
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // username and password sent from form 
 
-    $myusername = mysqli_real_escape_string($db, $_POST['email']);
-    $mypassword = mysqli_real_escape_string($db, $_POST['password']);
-
-
+    $myusername = $_POST['email'];
+    $mypassword = $_POST['password'];
     $sql = "SELECT * FROM logintable WHERE Email = '$myusername'";
-    $result = mysqli_query($db, $sql);
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $statement = $db->prepare($sql);
+    $statement->execute();
+    $row = $statement->fetch();
+    $statement->closeCursor();
     if ($row != NULL) {
         $hashedPass = $row['Password'];
         if (password_verify($mypassword, $hashedPass)) {
             $_SESSION['login_user'] = $myusername;
-            header("location: home.php");
+            header("location: $host/$site/src/home.php");
         } else {
-            array_push($errors,"Your Login Name or Password is invalid");
+            array_push($errors, "Your Login Name or Password is invalid");
             $createdAccount = "";
             $resetPassword = "";
-
         }
     } else {
-        array_push($errors,"Your Login Name or Password is invalid");
+        array_push($errors, "Your Login Name or Password is invalid");
         $createdAccount = "";
         $resetPassword = "";
     }
@@ -63,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="floatingPassword">Password</label>
             </div>
             <div style="color:#0a7300; margin-top:10px"><?php echo $createdAccount;
-            echo $resetPassword?></div>
-            <?php include("messages.php")?>
+                                                        echo $resetPassword ?></div>
+            <?php include("messages.php") ?>
             <p>Create a new account <span data-function="register" class="clickable">here</span></p>
             <p>Forgot your password? <a href="resetPass.php" style="color:#e7db2f">Reset Password</a></p>
             <button type="submit" class="btn btn-primary">Login</button>
@@ -92,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password">
                 <label for="floatingConfirmPassword">Confim Password</label>
             </div>
-            <?php include("messages.php")?>
+            <?php include("messages.php") ?>
             <p>Already have an account? <span data-function="login" class="clickable">Log in</span></p>
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
