@@ -131,20 +131,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div data-text="login" class="login-text">
             <h3>What is GiraffeState?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ornare arcu odio ut sem. Urna nunc id cursus metus aliquam eleifend mi. Diam donec
-                adipiscing tristique risus nec feugiat in fermentum. Arcu odio ut sem nulla pharetra diam sit amet nisl.
-                Consectetur libero id faucibus nisl tincidunt eget nullam non. Tellus integer feugiat scelerisque varius
-                morbi enim nunc faucibus. Non odio euismod lacinia at quis risus sed vulputate. Eu consequat ac felis
-                donec et odio pellentesque. Sed ullamcorper morbi tincidunt ornare massa eget. Orci dapibus ultrices in
-                iaculis nunc sed augue lacus viverra.</p>
-            <p>Felis bibendum ut tristique et egestas quis ipsum. Porttitor rhoncus dolor purus non enim praesent
-                elementum facilisis. Dignissim enim sit amet venenatis urna cursus. Semper viverra nam libero justo
-                laoreet sit amet. Et netus et malesuada fames ac turpis egestas. Malesuada pellentesque elit eget
-                gravida cum sociis natoque penatibus. Sit amet venenatis urna cursus eget nunc scelerisque. Ipsum dolor
-                sit amet consectetur adipiscing elit duis tristique sollicitudin. Bibendum ut tristique et egestas quis
-                ipsum suspendisse ultrices gravida. In fermentum et sollicitudin ac orci. Pellentesque dignissim enim
-                sit amet venenatis urna cursus.</p>
+            <p></p>
+            <p></p>
         </div>
     </div>
     </div>

@@ -33,7 +33,7 @@ if (isset($_POST['submit_email'])) {
         $msg = wordwrap($msg, 70);
         $headers = "From: password-reset@GiraffeState.com";
         mail($to, $subject, $msg, $headers);
-        array_push($errors, "We sent a password Reset to your email");
+        array_push($errors, "<span style='color:green'>We sent a password Reset to your email</span>");
     }
 }
 
