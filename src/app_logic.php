@@ -77,7 +77,7 @@ if (isset($_POST['new_pass'])) {
     if ($new_pass !== $new_pass_c) array_push($errors, "Password do not match");
     if (count($errors) == 0) {
         // select email address of user from the password_reset table 
-        $sql = "SELECT Email FROM reset_password WHERE Token='$token' LIMIT 1";
+        $sql = "SELECT * FROM reset_password WHERE Token='$token' LIMIT 1";
         $statement = $db->prepare($sql);
         $results = $statement->fetch();
         $statement->closeCursor();
