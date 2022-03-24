@@ -66,7 +66,7 @@ if (isset($_POST["login"])) {
             <?php include("messages.php") ?>
             <p>Create a new account <span data-function="register" class="clickable">here</span></p>
             <p>Forgot your password? <a href="resetPass.php" style="color:#e7db2f">Reset Password</a></p>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" name="login" class="btn btn-primary">Login</button>
         </form>
         <!-- Register form----------------------------------------------------->
         <form action="register.php" data-form="register" class="login-forms d-none" method="POST">
