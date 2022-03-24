@@ -7,8 +7,8 @@ $user_id = "";
   Accept email of user whose password is to be reset
   Send email to user to reset their password
 */
-if(isset($_GET['error'])) {
-    switch($_GET['error']){
+if (isset($_GET['error'])) {
+    switch ($_GET['error']) {
         case "invalidToken":
             array_push($errors, "The Token was invalid, please enter email again");
             break;
@@ -54,7 +54,7 @@ if (isset($_POST['submit_email'])) {
 
 
 // ENTER A NEW PASSWORD
-if(isset($_GET['token'])) {
+if (isset($_GET['token'])) {
     $token = $_GET['token'];
     $sql = "SELECT * FROM reset_password WHERE Token='$token' LIMIT 1";
     $statement = $db->prepare($sql);
@@ -62,7 +62,7 @@ if(isset($_GET['token'])) {
     $results = $statement->fetchAll();
     $statement->closeCursor();
     //Checks to see if the token even exists    
-    if(count($results) < 1) {
+    if (count($results) < 1) {
         header("location: resetPass.php?error=invalidToken");
     }
 }
@@ -82,19 +82,16 @@ if (isset($_POST['new_pass'])) {
         $results = $statement->fetch();
         $statement->closeCursor();
         $email = $results['email'];
-        if ($email) {
-            $new_pass =  password_hash($new_pass, PASSWORD_DEFAULT);
-            $sql = "UPDATE users SET Password='$new_pass' WHERE Email='$email'";
-            $statement = $db->prepare($sql);
-            $statement->execute();
-            $statement->closeCursor();
-            $sql = "DELETE FROM reset_password WHERE Token='$token'";
-            $statement = $db->prepare($sql);
-            $statement->execute();
-            $statement->closeCursor();
-            $_SESSION['reset_password'] = "Your password has been reset";
-            header('location: login.php');
-        }
+        $new_pass =  password_hash($new_pass, PASSWORD_DEFAULT);
+        $sql = "UPDATE users SET Password='$new_pass' WHERE Email='$email'";
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $statement->closeCursor();
+        $sql = "DELETE FROM reset_password WHERE Token='$token'";
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $statement->closeCursor();
+        $_SESSION['reset_password'] = "Your password has been reset";
+        header('location: login.php');
     }
 }
-
