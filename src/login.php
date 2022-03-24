@@ -6,7 +6,7 @@ $createdAccount = isset($_SESSION['created_account']) ? $_SESSION['created_accou
 $resetPassword = isset($_SESSION['reset_password']) ? $_SESSION['reset_password'] : "";
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST["login"])) {
     // username and password sent from form 
 
     $myusername = $_POST['email'];
