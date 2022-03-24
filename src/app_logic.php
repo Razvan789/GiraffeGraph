@@ -83,7 +83,7 @@ if (isset($_POST['new_pass'])) {
         $statement->closeCursor();
         $email = $results['email'];
         $new_pass =  password_hash($new_pass, PASSWORD_DEFAULT);
-        $sql = "UPDATE users SET Password='$new_pass' WHERE Email='$email'";
+        $sql = "UPDATE users SET Pass='$new_pass' WHERE Email='$email'";
         $statement = $db->prepare($sql);
         $statement->execute();
         $statement->closeCursor();

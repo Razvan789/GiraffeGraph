@@ -17,7 +17,7 @@ if (isset($_POST["login"])) {
     $row = $statement->fetch();
     $statement->closeCursor();
     if ($row != NULL) {
-        $hashedPass = $row['Password'];
+        $hashedPass = $row['Pass'];
         if (password_verify($mypassword, $hashedPass)) {
             $_SESSION['login_user'] = $myusername;
             header("location: home.php");
