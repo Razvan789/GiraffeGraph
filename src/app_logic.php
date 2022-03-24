@@ -19,7 +19,7 @@ if (isset($_POST['submit_email'])) {
     $errors = [];
     $email = $_POST['email'];
     // ensure that the user exists on our system
-    $sql = "SELECT Email FROM logintable WHERE Email='$email'";
+    $sql = "SELECT Email FROM users WHERE Email='$email'";
     $statement = $db->prepare($sql);
     $statement->execute();
     $results = $statement->fetchAll();
@@ -35,7 +35,7 @@ if (isset($_POST['submit_email'])) {
 
     if (count($errors) == 0) {
         // store token in the password-reset database table against the user's email
-        $sql = "INSERT INTO reset_password(email, token) VALUES ('$email', '$token')";
+        $sql = "INSERT INTO reset_password(Email, Token) VALUES ('$email', '$token')";
         $statement = $db->prepare($sql);
         $statement->execute();
         $statement->closeCursor();
@@ -56,7 +56,7 @@ if (isset($_POST['submit_email'])) {
 // ENTER A NEW PASSWORD
 if(isset($_GET['token'])) {
     $token = $_GET['token'];
-    $sql = "SELECT * FROM reset_password WHERE token='$token' LIMIT 1";
+    $sql = "SELECT * FROM reset_password WHERE Token='$token' LIMIT 1";
     $statement = $db->prepare($sql);
     $statement->execute();
     $results = $statement->fetchAll();
@@ -77,18 +77,18 @@ if (isset($_POST['new_pass'])) {
     if ($new_pass !== $new_pass_c) array_push($errors, "Password do not match");
     if (count($errors) == 0) {
         // select email address of user from the password_reset table 
-        $sql = "SELECT email FROM reset_password WHERE token='$token' LIMIT 1";
+        $sql = "SELECT Email FROM reset_password WHERE Token='$token' LIMIT 1";
         $statement = $db->prepare($sql);
         $results = $statement->fetch();
         $statement->closeCursor();
         $email = $results['email'];
         if ($email) {
             $new_pass =  password_hash($new_pass, PASSWORD_DEFAULT);
-            $sql = "UPDATE logintable SET password='$new_pass' WHERE email='$email'";
+            $sql = "UPDATE users SET Password='$new_pass' WHERE Email='$email'";
             $statement = $db->prepare($sql);
             $statement->execute();
             $statement->closeCursor();
-            $sql = "DELETE FROM reset_password WHERE token='$token'";
+            $sql = "DELETE FROM reset_password WHERE Token='$token'";
             $statement = $db->prepare($sql);
             $statement->execute();
             $statement->closeCursor();

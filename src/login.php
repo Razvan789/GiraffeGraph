@@ -11,7 +11,7 @@ if (isset($_POST["login"])) {
 
     $myusername = $_POST['email'];
     $mypassword = $_POST['password'];
-    $sql = "SELECT * FROM logintable WHERE Email = '$myusername'";
+    $sql = "SELECT * FROM users WHERE Email = '$myusername'";
     $statement = $db->prepare($sql);
     $statement->execute();
     $row = $statement->fetch();
