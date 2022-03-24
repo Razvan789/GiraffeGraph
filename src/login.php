@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <?php include("messages.php") ?>
             <p>Already have an account? <span data-function="login" class="clickable">Log in</span></p>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" name="register" class="btn btn-primary">Register</button>
         </form>
 
         <div data-text="login" class="login-text">
