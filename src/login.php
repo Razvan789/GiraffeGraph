@@ -10,34 +10,34 @@ if (isset($_POST["login"])) {
     // username and password sent from form 
 
     $myusername = $_POST['email'];
-    if(strlen($myusername) < 1) {
+    if (strlen($myusername) < 1) {
         array_push($errors, "Email Field cannot be empty");
-        return;
     }
     $mypassword = $_POST['password'];
-    if(empty($mypassword)) {
-        array_push($errors,"A password is required");
-        return;
+    if (empty($mypassword)) {
+        array_push($errors, "A password is required");
     }
-    $sql = "SELECT * FROM users WHERE Email = '$myusername'";
-    $statement = $db->prepare($sql);
-    $statement->execute();
-    $row = $statement->fetch();
-    $statement->closeCursor();
-    if ($row != NULL) {
-        $hashedPass = $row['Pass'];
-        if (password_verify($mypassword, $hashedPass)) {
-            $_SESSION['login_user'] = $myusername;
-            header("location: home.php");
+    if (empty($errors)) {
+        $sql = "SELECT * FROM users WHERE Email = '$myusername'";
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $row = $statement->fetch();
+        $statement->closeCursor();
+        if ($row != NULL) {
+            $hashedPass = $row['Pass'];
+            if (password_verify($mypassword, $hashedPass)) {
+                $_SESSION['login_user'] = $myusername;
+                header("location: home.php");
+            } else {
+                array_push($errors, "Your Login Name or Password is invalid");
+                $createdAccount = "";
+                $resetPassword = "";
+            }
         } else {
             array_push($errors, "Your Login Name or Password is invalid");
             $createdAccount = "";
             $resetPassword = "";
         }
-    } else {
-        array_push($errors, "Your Login Name or Password is invalid");
-        $createdAccount = "";
-        $resetPassword = "";
     }
 }
 ?>
