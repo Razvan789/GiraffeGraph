@@ -78,13 +78,13 @@ if (isset($_POST['new_pass'])) {
     if ($new_pass !== $new_pass_c) array_push($errors, "Password do not match");
     if (count($errors) == 0) {
         // select email address of user from the password_reset table 
-        $sql = "SELECT * FROM reset_password WHERE Token='$token' LIMIT 1";
+        $sql = "SELECT Email FROM reset_password WHERE Token='$token'";
         $statement = $db->prepare($sql);
         $results = $statement->fetch();
         $statement->closeCursor();
         echo $results['Email'];
         $email = $results['Email'];
-        //$new_pass =  password_hash($new_pass, PASSWORD_DEFAULT);
+        $new_pass =  password_hash($new_pass, PASSWORD_DEFAULT);
         $sql = "UPDATE users SET Pass='$new_pass' WHERE Email='$email'";
         $statement = $db->prepare($sql);
         $statement->execute();
@@ -93,7 +93,7 @@ if (isset($_POST['new_pass'])) {
         $statement = $db->prepare($sql);
         $statement->execute();
         $statement->closeCursor();
-        $_SESSION['reset_password'] = "Your password has been reset";
+        $_SESSION['reset_password'] = "Your password has been reset for $email";
         header('location: login.php?page=1');
     }
 }
