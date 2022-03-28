@@ -2,6 +2,7 @@
 include("config.php");
 session_start();
 $errors = [];
+$messages=[];
 $user_id = "";
 /*
   Accept email of user whose password is to be reset
@@ -47,7 +48,7 @@ if (isset($_POST['submit_email'])) {
         $msg = wordwrap($msg, 70);
         $headers = "From: password-reset@$host";
         mail($to, $subject, $msg, $headers);
-        array_push($errors, "<span style='color:green;'>We sent a password Reset to your email</span>");
+        array_push($messages, "We sent a password Reset to your email</span>");
     }
 }
 
