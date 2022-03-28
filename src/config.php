@@ -10,4 +10,10 @@
    } catch (Exception $e){
        echo "Database error please try again";
    }
+
+   function checkEmpty($varToCheck, $varName, $arrayToAdd) {
+    if(empty($varToCheck)) {
+        array_push($arrayToAdd, "The $varName field is required.");
+    }
+}
 ?>
