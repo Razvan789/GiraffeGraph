@@ -169,7 +169,7 @@ body {
 
 
 a {
-    color: inherit;
+    color: #e7db2f;
 }
 
 a:hover {
@@ -241,4 +241,7 @@ span.clickable {
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
+  .d-none {
+      display: none !important;
   }

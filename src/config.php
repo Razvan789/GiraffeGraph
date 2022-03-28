@@ -1,6 +1,6 @@
 <?php
        //For Database connections, include file when using db
-       $dsn = 'mysql:host=beldeanu.com;dbname=razvan_GiraffeGraph';
+       $dsn = 'mysql:host=localhost;dbname=razvan_GiraffeGraph';
        $username = 'razvan';
        $password = 'Paul2002!@#';
        $host = "beldeanu.com";
@@ -20,7 +20,7 @@ function checkEmpty($varToCheck, $varName) {
 }
 
 function inUse($email, $db) {
-    $sql = "SELECT * from users where Email=$email";
+    $sql = "SELECT * from users where Email='$email'";
     $statement = $db->prepare($sql);
     $statement->execute();
     $results = $statement->fetchAll();
