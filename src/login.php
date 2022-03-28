@@ -84,10 +84,12 @@ function checkPage($currPage)
 {
     if (isset($_GET['page'])) {
         $page = intval($_GET['page']);
-        if ($currPage != $page) {
-            echo " d-none";
-            return;
-        }
+    } else {
+        $page = 1;
+    }
+    if ($currPage != $page) {
+        echo " d-none";
+        return;
     }
     return;
 }
