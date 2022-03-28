@@ -10,7 +10,15 @@ if (isset($_POST["login"])) {
     // username and password sent from form 
 
     $myusername = $_POST['email'];
+    if(strlen($myusername) < 1) {
+        array_push($errors, "Email Field cannot be empty");
+        return;
+    }
     $mypassword = $_POST['password'];
+    if(empty($mypassword)) {
+        array_push($errors,"A password is required");
+        return;
+    }
     $sql = "SELECT * FROM users WHERE Email = '$myusername'";
     $statement = $db->prepare($sql);
     $statement->execute();
