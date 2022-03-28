@@ -64,7 +64,7 @@ if (isset($_POST['register'])) {
         array_push($errors, "Passwords Must Match");
     }
     if (empty($errors)) {
-        if (!inUse($email, $db)) {
+        if (inUse($email, $db)) {
             array_push($errors, "Email is already in Use");
         }
     }
@@ -76,6 +76,7 @@ if (isset($_POST['register'])) {
         $statement->execute();
         $statement->closeCursor();
         array_push($messages, "Account Created, Please Log in!");
+        $_GET["page"] = 1;
     }
 }
 
