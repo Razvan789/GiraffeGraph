@@ -68,7 +68,7 @@ if ($loggedIn) : ?>
                     </li>
                     <li class="nav-item">
                         <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
-                        <a class="btn btn-outline-success" type="submit" href="login.php">Login</a>
+                        <a class="btn btn-outline-success" type="submit" href="login.php?page=1">Login</a>
                     </li>
                 </ul>
             </div>
