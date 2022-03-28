@@ -11,11 +11,23 @@
        echo "Database error please try again";
    }
 
-   function checkEmpty($varToCheck, $varName) {
+function checkEmpty($varToCheck, $varName) {
     $arrayToAdd = [];
     if(empty($varToCheck)) {
         array_push($arrayToAdd, "The $varName field is required.");
     }
     return $arrayToAdd;
 }
-?>
+
+function inUse($email, $db) {
+    $sql = "SELECT * from users where Email=$email";
+    $statement = $db->prepare($sql);
+    $statement->execute();
+    $results = $statement->fetchAll();
+    $statement->closeCursor();
+
+    if(count($results) > 0) {
+        return true;
+    }
+    return false;
+}
