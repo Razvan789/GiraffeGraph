@@ -2,6 +2,7 @@
 include("config.php");
 session_start();
 $errors = [];
+$messages = [];
 $createdAccount = isset($_SESSION['created_account']) ? $_SESSION['created_account'] : "";
 $resetPassword = isset($_SESSION['reset_password']) ? $_SESSION['reset_password'] : "";
 
@@ -40,6 +41,38 @@ if (isset($_POST["login"])) {
         }
     }
 }
+
+
+if (isset($_POST['register'])) {
+    $firstName = $_POST["fname"];
+    $errors = checkEmpty($firstName, "First Name");
+    $lastName = $_POST["lname"];
+    $errors = checkEmpty($lastName, "Last Name");
+    $email = $_POST["email"];
+    $errors = checkEmpty($email, "Email");
+    $password = $_POST["password"];
+    $errors = checkEmpty($password, "Password");
+    $confirmPassword = $_POST["confirmPassword"];
+    $errors = checkEmpty($confirmPassword, "Confirm Password");
+
+    if (strcmp($password, $confirmPassword) != 0) {
+        array_push($errors, "Passwords Must Match");
+    }
+    if (!inUse($email, $db)) {
+        array_push($errors, "Email is already in Use");
+    }
+    // username and password sent from form 
+    if (empty($errors)) {
+        $hashedPass = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO users VALUES (NULL,'$email','$hashedPass','$firstName','$lastName')";
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $statement->closeCursor();
+        array_push($messages, "Account Created, Please Log in!");
+        //header("location: login.php");
+    }
+}
+
 ?>
 <html lang="en">
 
@@ -77,7 +110,7 @@ if (isset($_POST["login"])) {
             <button type="submit" name="login" class="btn btn-primary">Login</button>
         </form>
         <!-- Register form----------------------------------------------------->
-        <form action="register.php" data-form="register" class="login-forms d-none" method="POST">
+        <form action="" data-form="register" class="login-forms d-none" method="POST">
             <h2>Register</h2>
             <div class="form-floating">
                 <input type="text" class="form-control" id="floatingFName" name="fname">
