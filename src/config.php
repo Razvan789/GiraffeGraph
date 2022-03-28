@@ -11,9 +11,11 @@
        echo "Database error please try again";
    }
 
-   function checkEmpty($varToCheck, $varName, $arrayToAdd) {
+   function checkEmpty($varToCheck, $varName) {
+    $arrayToAdd = [];
     if(empty($varToCheck)) {
         array_push($arrayToAdd, "The $varName field is required.");
     }
+    return $arrayToAdd;
 }
 ?>
