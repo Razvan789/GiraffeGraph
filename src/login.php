@@ -3,7 +3,6 @@ include("config.php");
 session_start();
 $errors = [];
 $messages = [];
-$page;
 $resetPassword = isset($_SESSION['reset_password']) ? $_SESSION['reset_password'] : "";
 
 
@@ -44,22 +43,30 @@ if (isset($_POST["login"])) {
 
 
 if (isset($_POST['register'])) {
-    $firstName = $_POST["fname"];
-    $errors = checkEmpty($firstName, "First Name");
-    $lastName = $_POST["lname"];
-    $errors = checkEmpty($lastName, "Last Name");
-    $email = $_POST["email"];
-    $errors = checkEmpty($email, "Email");
-    $password = $_POST["password"];
-    $errors = checkEmpty($password, "Password");
+    //This is done in reverse order so only the top most error is displayed
+    //Confirm Pass
     $confirmPassword = $_POST["confirmPassword"];
     $errors = checkEmpty($confirmPassword, "Confirm Password");
+    //Password
+    $password = $_POST["password"];
+    $errors = checkEmpty($password, "Password");
+    //Email
+    $email = $_POST["email"];
+    $errors = checkEmpty($email, "Email");
+    //Last Name
+    $lastName = $_POST["lname"];
+    $errors = checkEmpty($lastName, "Last Name");
+    //First Name
+    $firstName = $_POST["fname"];
+    $errors = checkEmpty($firstName, "First Name");
 
     if (strcmp($password, $confirmPassword) != 0) {
         array_push($errors, "Passwords Must Match");
     }
-    if (!inUse($email, $db)) {
-        array_push($errors, "Email is already in Use");
+    if (empty($errors)) {
+        if (!inUse($email, $db)) {
+            array_push($errors, "Email is already in Use");
+        }
     }
     // username and password sent from form 
     if (empty($errors)) {
@@ -69,14 +76,14 @@ if (isset($_POST['register'])) {
         $statement->execute();
         $statement->closeCursor();
         array_push($messages, "Account Created, Please Log in!");
-        //header("location: login.php");
     }
 }
 
-function checkPage($currPage) {
-    if(isset($_GET['page'])) {
+function checkPage($currPage)
+{
+    if (isset($_GET['page'])) {
         $page = intval($_GET['page']);
-        if($currPage != $page) {
+        if ($currPage != $page) {
             echo " d-none";
             return;
         }
@@ -102,7 +109,7 @@ function checkPage($currPage) {
     <?php include("navbar.php") ?>
     <div class="login-grid">
         <!-- Login Form-------------------------------------------------------->
-        <form action="" data-form='login' class="login-forms <?php checkPage(1)?>" method="POST">
+        <form action="" data-form='login' class="login-forms <?php checkPage(1) ?>" method="POST">
             <h2>Login</h2>
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
@@ -119,14 +126,14 @@ function checkPage($currPage) {
             <button type="submit" name="login" class="btn btn-primary">Login</button>
         </form>
         <!-- Register form----------------------------------------------------->
-        <form action="" data-form="register" class="login-forms <?php checkPage(2)?>" method="POST">
+        <form action="" data-form="register" class="login-forms <?php checkPage(2) ?>" method="POST">
             <h2>Register</h2>
             <div class="form-floating">
-                <input type="text" class="form-control" id="floatingFName" name="fname">
+                <input type="text" class="form-control" id="floatingFName" name="fname" placeholder="John">
                 <label for="floatingFName">First Name</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" name="lname">
+                <input type="text" class="form-control" name="lname" placeholder="Doe">
                 <label for="floatingLName">Last Name</label>
             </div>
             <div class="form-floating mb-3">
@@ -146,7 +153,7 @@ function checkPage($currPage) {
             <button type="submit" name="register" class="btn btn-primary">Register</button>
         </form>
 
-        <div data-text="login" class="login-text <?php checkPage(1)?>">
+        <div data-text="login" class="login-text <?php checkPage(1) ?>">
             <h3>What is GiraffeState?</h3>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, beatae. Aut sequi optio commodi quas, aliquid doloribus saepe, corporis soluta consectetur amet repudiandae at, consequatur quos ullam vero sint officia maiores tenetur. Officiis impedit nisi labore fugiat at, ut necessitatibus commodi assumenda voluptatibus distinctio! Illum ut laborum sit laudantium consequatur maxime blanditiis, esse maiores ratione repellendus autem iure illo labore harum dolore voluptate velit! Porro quasi ut esse culpa minima! Facilis beatae a maiores, quod atque suscipit officia optio eaque porro, maxime sunt totam velit, pariatur cupiditate laudantium corporis! Eligendi, labore officia velit saepe error qui quo id ut iusto, voluptas eaque hic est ab amet quis rem reiciendis deleniti, inventore esse explicabo! Nihil placeat accusamus labore blanditiis aperiam quaerat voluptate, dicta animi enim officia recusandae. Fugit, temporibus officiis voluptatibus alias, ad repellat assumenda perferendis molestias autem sapiente numquam! Natus magni maiores sed tempora asperiores, delectus sequi quas et fugit.</p>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, repellendus consequuntur. Necessitatibus et voluptas, aliquid exercitationem perspiciatis magnam cum aspernatur voluptate in quos fugit nulla quas sint similique ipsum consectetur, facilis ipsa nobis adipisci asperiores sunt deleniti nihil, eaque numquam! Vel itaque rem unde maxime blanditiis consequuntur? Laborum deserunt debitis repellendus sint nemo magni maiores placeat? Similique doloremque, fugit officia expedita laborum eius nisi molestiae illo iure eaque quisquam facilis nobis placeat consectetur quaerat modi nemo sapiente saepe unde, odio deserunt! Debitis, aliquam! Ea magni quisquam perspiciatis expedita quas. Necessitatibus a modi commodi alias atque adipisci, repudiandae assumenda quisquam laboriosam.</p>

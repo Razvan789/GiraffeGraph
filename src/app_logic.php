@@ -92,6 +92,6 @@ if (isset($_POST['new_pass'])) {
         $statement->execute();
         $statement->closeCursor();
         $_SESSION['reset_password'] = "Your password has been reset";
-        header('location: login.php');
+        header('location: login.php?page=1');
     }
 }

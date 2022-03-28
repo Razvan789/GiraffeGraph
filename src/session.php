@@ -12,7 +12,7 @@
    $login_session_name = $row['FirstName'];
    
    if(!isset($_SESSION['login_user'])){
-      header("location:login.php");
+      header("location:login.php?page=1");
       die();
    }
 ?>
