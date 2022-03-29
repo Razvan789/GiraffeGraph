@@ -47,20 +47,21 @@ if (isset($_POST['submit_email'])) {
         $msg = "Hi there,  Please click <a href ='https://www.$host/$site/src/newPass.php?token=$token'>Here</a> or visit https://www.$host/$site/src/newPass.php?token=$token to reset your password on our site";
         $msg = wordwrap($msg, 70);
         $headers = "From: password-reset@$host";
-        mail($to, $subject, $msg, $headers);
+        //mail($to, $subject, $msg, $headers);-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------UNCOMMENT THIS LINE
         array_push($messages, "We sent a password Reset to your email</span>");
     }
 }
 
 
-
+$email = 'temp';
 // ENTER A NEW PASSWORD
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
     $sql = "SELECT * FROM reset_password WHERE Token='$token' LIMIT 1";
     $statement = $db->prepare($sql);
     $statement->execute();
-    $results = $statement->fetchAll();
+    $results = $statement->fetch();
+    $email = $results['Email'];
     $statement->closeCursor();
     //Checks to see if the token even exists    
     if (count($results) < 1) {
@@ -77,13 +78,6 @@ if (isset($_POST['new_pass'])) {
     if (empty($new_pass) || empty($new_pass_c)) array_push($errors, "Password is required");
     if ($new_pass !== $new_pass_c) array_push($errors, "Password do not match");
     if (count($errors) == 0) {
-        // select email address of user from the password_reset table 
-        $sql = "SELECT Email FROM reset_password WHERE Token='$token'";
-        $statement = $db->prepare($sql);
-        $results = $statement->fetch();
-        $statement->closeCursor();
-        echo $results['Email'];
-        $email = $results['Email'];
         $new_pass =  password_hash($new_pass, PASSWORD_DEFAULT);
         $sql = "UPDATE users SET Pass='$new_pass' WHERE Email='$email'";
         $statement = $db->prepare($sql);
