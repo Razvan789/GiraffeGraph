@@ -208,7 +208,8 @@ span.clickable {
 
 .center-self {
     margin: auto;
-    width: 45ch;
+    max-width: 80ch;
+    min-width: 35ch;
     padding: 3ch;
 }
 
