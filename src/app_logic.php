@@ -47,7 +47,7 @@ if (isset($_POST['submit_email'])) {
         $msg = "Hi there,  Please click <a href ='https://www.$host/$site/src/newPass.php?token=$token'>Here</a> or visit https://www.$host/$site/src/newPass.php?token=$token to reset your password on our site";
         $msg = wordwrap($msg, 70);
         $headers = "From: password-reset@$host";
-        mail($to, $subject, $msg, $headers);-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------UNCOMMENT THIS LINE
+        mail($to, $subject, $msg, $headers);
         array_push($messages, "We sent a password Reset to your email</span>");
     }
 }
