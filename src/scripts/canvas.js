@@ -6,12 +6,21 @@ const clearButton = document.querySelector("#clearCanv");
 const colorSelected = document.querySelector("#color-picker");
 const sizeSelected = document.querySelector("#size-picker");
 const modalButton = document.querySelector('#open-modal-btn');
+function resizeCanvas() {
+    canvas.height = window.innerHeight *.8;
+    canvas.width = window.innerWidth * .8;
+    if(window.innerWidth < 500) {
+        canvas.width = window.innerWidth *.9
+    } else {
+        canvas.width = window.innerWidth * .8;
+    }
+}
+
 window.addEventListener('load', () => {
 
     //canvas.style.display = "none";
     //Resize The canvas
-    canvas.height = 600;
-    canvas.width = 1200;
+    resizeCanvas();
     //Set background color to a sligtly off white
     context.fillStyle = 'WhiteSmoke';
     context.fillRect(0, 0, canvas.width, canvas.height);
@@ -80,6 +89,8 @@ window.addEventListener('load', () => {
     modalButton.onclick = clearCanvas;
     console.log("Loaded Canvas");
 });
+
+window.addEventListener('resize', resizeCanvas);
 
 
 document.querySelector('#canvasModal').addEventListener('show.bs.modal', function (e) {

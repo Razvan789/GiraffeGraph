@@ -246,3 +246,8 @@ span.clickable {
   .d-none {
       display: none !important;
   }
+
+  .canvas-main {
+      width: 80vw;
+      margin: auto;
+  }
