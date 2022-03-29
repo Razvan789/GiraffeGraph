@@ -18,30 +18,33 @@ include("session.php");
 
 <body>
     <div style="display:none;">
-    <?php include("navbar.php") ?>
+        <?php include("navbar.php") ?>
     </div>
     <div class="canvas-main">
         <div class="canvasControls">
             <div class="left">
-            <button id="clearCanv" class="btn btn-outline-secondary" type="button">Clear</button>
-            <label>Color:</label>
-            <input type="color" class="form-control form-control-color" id="color-picker" value="#563d7c" title="Choose your color">
-            <label for="size-picker">Size:</label>
-            <select name="size-picker" id="size-picker">
-                <option value="1" selected>1px</option>
-                <option value="2">2px</option>
-                <option value="5">5px</option>
-                <option value="10">10px</option>
-                <option value="20">20px</option>
-            </select>
+                <button id="clearCanv" class="btn btn-outline-secondary" type="button">Clear</button>
+                <label>Color:</label>
+                <input type="color" class="form-control-color" id="color-picker" value="#563d7c" title="Choose your color">
+                <label for="size-picker">Size:</label>
+                <select name="size-picker" id="size-picker">
+                    <option value="1" selected>1px</option>
+                    <option value="2">2px</option>
+                    <option value="5">5px</option>
+                    <option value="10">10px</option>
+                    <option value="20">20px</option>
+                </select>
             </div>
             <div class="right">
-                <a class="btn btn-secondary" href="home">Go back home</a>
+                <a class="btn btn-secondary" href="home.php">Go back home</a>
             </div>
         </div>
-        <canvas id="canvas"></canvas>
-        <button id="saveCanv" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
-        <button type="button" id="update-canvas-btn" class="d-none btn btn-primary" data-bs-dismiss="modal">Update</button>
+        <form action="sendCanvas.php" method="POST">
+            <canvas id="canvas"></canvas>
+            <input type="hidden" name="img" data-target="canvas-hidden" value="TEMP">
+            <input type="submit" id="saveCanv" type="button" name="send-canvas"class="btn btn-primary">Save</button>
+            <input type="submit" id="update-canvas-btn" class="d-none btn btn-primary">Update</button>
+        </form>
     </div>
 
     <div id="cardContainer" class="container mt-3">

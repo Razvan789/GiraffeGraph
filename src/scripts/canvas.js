@@ -6,6 +6,7 @@ const clearButton = document.querySelector("#clearCanv");
 const colorSelected = document.querySelector("#color-picker");
 const sizeSelected = document.querySelector("#size-picker");
 const modalButton = document.querySelector('#open-modal-btn');
+const hiddenCanvasInput = document.querySelector("[data-target=canvas-hidden]");
 function resizeCanvas() {
     canvas.height = window.innerHeight *.8;
     canvas.width = window.innerWidth * .8;
@@ -44,6 +45,7 @@ window.addEventListener('load', () => {
         if (!e.ctrlKey) {
             context.beginPath(); // Every time you stop allow for a new path to be made
         }
+        saveCanvas();
     }
     function clearCanvas() {
         context.fillStyle = 'WhiteSmoke';
@@ -119,52 +121,11 @@ saveButton.addEventListener('click', saveCanvas);
 
 updateButton.addEventListener('click', updateCanvas);
 
-/*Notes for future me 
-Current issue
-    add the data-bs-target to each card created.
-*/
 
 function saveCanvas() {
     var base64 = canvas.toDataURL();
-    const template = document.querySelector("#card-template");
-    const newCard = template.content.cloneNode(true);
-    const cardRow = document.querySelector("#card-row");
-    newCard.querySelector("#canImg").src = base64;
-    cardRow.prepend(newCard);
+    hiddenCanvasInput.value = base64;
 }
-
-/*
-function saveCanvas() {
-    // This needs heavy reformating !!
-    //Use templates!!
-    var base64 = canvas.toDataURL();
-    var elem = document.createElement("img");
-    var card = document.createElement("button");
-    var cardBody = document.createElement("div");
-    var column = document.createElement("div");
-    var cardText = document.createElement("h5");
-    cardBody.classList.add('card-body');
-    cardText.classList.add('card-title');
-    card.classList.add('card');
-    card.dataset.target = 'bs.#canvasModal';
-    card.dataset.toggle = 'bs.modal';
-    column.classList.add('col-auto');
-    column.classList.add('col-md-offset-2');
-    column.id = 'col';
-    cardText.innerHTML = "Saved Image";
-    cardBody.appendChild(cardText);
-    console.log("Saving");
-    //console.log(base64);
-    elem.src = base64;
-    elem.width = 200;
-    elem.height = 200;
-    elem.id = 'canImg';
-    elem.classList.add('card-img-top');
-    card.appendChild(elem);
-    card.appendChild(cardBody);
-    column.appendChild(card);
-    document.querySelector('#card-row').prepend(card);
-}*/
 
 function updateCanvas() {
     var base64 = canvas.toDataURL();
