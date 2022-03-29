@@ -27,12 +27,20 @@ body {
 .card-title {
     font-size: 1.1em;
 }
-.canvasControls{
+
+.canvasControls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .3em;
+}
+.canvasControls .left{
     display: flex;
     align-items: center;
+    width: fit-content;
 }
 
-.canvasControls * {
+.canvasControls .left * {
     margin: .3em;
 }
 #cardRow button {
