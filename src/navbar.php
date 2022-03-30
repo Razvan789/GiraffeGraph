@@ -16,7 +16,7 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">Gallery</a>
+                        <a class="nav-link" href="gallery.php">Gallery</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="#">My Giraffes</a>
@@ -55,7 +55,7 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="home.php">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">Gallery</a>
+                        <a class="nav-link" href="gallery.php">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Help</a>
