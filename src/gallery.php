@@ -1,5 +1,5 @@
 <?php
-include("session.php");
+include("config.php");
 $gallery = [];
 
 $sql = "SELECT * FROM gallery";
