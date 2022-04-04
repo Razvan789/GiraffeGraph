@@ -1,27 +1,29 @@
-
 #canvas {
     border: 2px solid black;
     margin-top: .5%;
 }
+
 html {
     --anim-timing: .3s;
 }
+
 body {
     min-width: 400px;
 }
-.card{
+
+.card {
     margin: 1%;
     text-align: center;
     border-radius: 10px;
     background: #fff;
-    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-    transition: var(--anim-timing) transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+    transition: var(--anim-timing) transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
     cursor: pointer;
 }
 
-.card:hover{
+.card:hover {
     transform: scale(1.1);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
 
 .card-title {
@@ -34,7 +36,8 @@ body {
     align-items: center;
     margin-top: .3em;
 }
-.canvasControls .left{
+
+.canvasControls .left {
     display: flex;
     align-items: center;
     width: fit-content;
@@ -43,24 +46,27 @@ body {
 .canvasControls .left * {
     margin: .3em;
 }
+
 #cardRow button {
 
     padding: 0;
 }
+
 #cardRow {
     margin: 3rem;
 }
 
-#canvas-modal-dialog{
+#canvas-modal-dialog {
     max-width: fit-content;
 }
-.form-control-color{
+
+.form-control-color {
     max-width: 3em;
     max-height: fit-content;
     padding: .375rem;
 }
 
-.navbar-nav{
+.navbar-nav {
     justify-content: space-between;
     width: 80vw;
 }
@@ -70,12 +76,14 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
 .login-forms {
     margin: auto;
     width: 30em;
     padding: 1.5em;
 }
-.login-forms *{
+
+.login-forms * {
     margin-bottom: 1em;
 }
 
@@ -118,7 +126,7 @@ body {
 
 .main-body .document-opener {
     width: 66vw;
-    margin:  0 1em;
+    margin: 0 1em;
 }
 
 .main-body.mobile-body .document-opener {
@@ -126,10 +134,11 @@ body {
     margin: auto;
 }
 
-.document-opener h4:first-child{
+.document-opener h4:first-child {
     margin-bottom: 0em;
 }
-.document-opener h4{
+
+.document-opener h4 {
     margin: 1em;
 }
 
@@ -141,7 +150,7 @@ body {
     border-radius: 30px;
 }
 
-.document-opener .card-slider .card-container{
+.document-opener .card-slider .card-container {
     display: flex;
     flex: 1 1 auto;
     overflow: auto;
@@ -153,7 +162,7 @@ body {
     border-radius: 20px;
     margin: 1em auto 5em auto;
     padding: 2vw;
-	text-align: center;
+    text-align: center;
 }
 
 .main-body.mobile-body .about-giraffestate {
@@ -180,8 +189,9 @@ a {
 }
 
 a:hover {
-    color:#e7db2f;
+    color: #e7db2f;
 }
+
 .refrence-list li:hover {
     transform: scale(1.02);
     transition: var(--anim-timing);
@@ -210,8 +220,8 @@ footer {
 
 span.clickable {
     text-decoration: underline;
-    color:#e7db2f;
-    cursor:pointer;
+    color: #e7db2f;
+    cursor: pointer;
 }
 
 .center-self {
@@ -234,39 +244,40 @@ span.clickable {
 ::-webkit-scrollbar {
     width: 5px;
     height: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: white;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 20px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: #555;
-  }
-  .d-none {
-      display: none !important;
-  }
+}
 
-  .canvas-main {
-      width: 80vw;
-      margin: auto;
-  }
+.d-none {
+    display: none !important;
+}
 
-  .image-container {
-      width: 500px;
-      margin: auto;
-      display: flex;
-      flex-wrap: wrap;
-  }
+.canvas-main {
+    width: 80vw;
+    margin: auto;
+}
 
-  .image-container *{
-      margin: 20px;
-  }
+.image-container {
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-container * {
+    margin: 20px;
+}
