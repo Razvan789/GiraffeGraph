@@ -27,7 +27,7 @@ include('session.php');
             <div data-card-slider class="card-slider">
                 <div class="card-container">
                     <div id="blank-card" onclick="location.href='canvas_page.php'" class="card border-dark mb-3 disabled">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
                         <div class="card-body">
                             <h5 class="card-title">Blank</h5>
                         </div>
@@ -93,7 +93,7 @@ include('session.php');
             </div>
             <h4><a href="#"> Open Most Recent Giraffe</a></h4>
             <h4><a href="#"> Upload a Giraffe</a></h4>
-            <h4><a href="./cloudDocuments_NA.html"> Cloud Giraffes</a></h4>
+            <h4><a href="./cloudDocuments_NA.html"> My Giraffes</a></h4>
         </div>
 
 			<div class="about-giraffestate">
