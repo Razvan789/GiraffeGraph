@@ -1,5 +1,6 @@
 <?php
 include("config.php");
+session_start();
 $gallery = [];
 
 $sql = "SELECT * FROM gallery";
@@ -25,16 +26,26 @@ $statement->closeCursor();
 <body>
     <?php include("navbar.php") ?>
     <h1 class="text-center">Temp Gallery for Display purposes</h1>
+    <form action="" method="get">
+        <div class="input-group mb-3">
+            <select class="dropdown-toggle" aria-label="searchItem">
+                <option value="1" selected>Title</option>
+                <option value="2">User</option>
+                <option value="3">Date</option>
+            </select>
+            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+        </div>
+    </form>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php foreach ($gallery as $item) : ?>
             <div class="col">
-                <div class="card">
+                <div class="card" style="width: fit-content;">
                     <img src="<?php echo $item['Image'] ?>" class="card-img-top" alt="Img:<?php echo $item['GID'] ?>">
                     <div class="card-body">
                         <h5 class="card-title">Title: <?php echo $item['Title'] ?></h5>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Posted: <?php echo $item['DateTime']?> by UserID: <?php echo $item['UID'] ?></small>
+                        <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by UserID: <?php echo $item['UID'] ?></small>
                     </div>
                 </div>
             </div>
