@@ -1,8 +1,15 @@
 <?php
 include("config.php");
+session_start();
+if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
+    $searchType = $_GET['searchType'];
+    $searchTerm = $_GET['searchTerm'];
+    $sql = "SELECT * FROM gallery where $searchType=$searchTerm";
+} else {
+    $sql = "SELECT * FROM gallery";
+}
 $gallery = [];
-
-$sql = "SELECT * FROM gallery";
+$errors = [];
 $statement = $db->prepare($sql);
 $statement->execute();
 $gallery = $statement->fetchAll();
@@ -25,16 +32,27 @@ $statement->closeCursor();
 <body>
     <?php include("navbar.php") ?>
     <h1 class="text-center">Temp Gallery for Display purposes</h1>
+    <form action="" method="get">
+        <div class="input-group mb-3">
+            <select class="dropdown-toggle" name="searchType" aria-label="searchItem">
+                <option value="Title" selected>Title</option>
+                <option value="UID">User</option>
+                <option value="GID">GID</option>
+            </select>
+            <input type="text" class="form-control" name="searchTerm" aria-label="Text input with dropdown button">
+            <input type="submit" class="btn btn-outline-primary" value="Search">
+        </div>
+    </form>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php foreach ($gallery as $item) : ?>
             <div class="col">
-                <div class="card">
+                <div class="card" style="width: fit-content;">
                     <img src="<?php echo $item['Image'] ?>" class="card-img-top" alt="Img:<?php echo $item['GID'] ?>">
                     <div class="card-body">
                         <h5 class="card-title">Title: <?php echo $item['Title'] ?></h5>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Posted: <?php echo $item['DateTime']?> by UserID: <?php echo $item['UID'] ?></small>
+                        <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by UserID: <?php echo $item['UID'] ?></small>
                     </div>
                 </div>
             </div>

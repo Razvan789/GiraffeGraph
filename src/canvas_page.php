@@ -35,22 +35,17 @@ include("session.php");
                     <option value="20">20px</option>
                 </select>
             </div>
+            
+        </div>
+        <canvas id="canvas"></canvas>
+        <form action="sendCanvas.php" method="POST">
+            <input type="hidden" name="img" data-target="canvas-hidden" value="TEMP">
+            <input type="submit" id="saveCanv" type="button" name="send-canvas"class="btn btn-primary">
             <div class="right">
                 <a class="btn btn-secondary" href="home.php">Go back home</a>
             </div>
-        </div>
-        <form action="sendCanvas.php" method="POST">
-            <canvas id="canvas"></canvas>
-            <input type="hidden" name="img" data-target="canvas-hidden" value="TEMP">
-            <input type="submit" id="saveCanv" type="button" name="send-canvas"class="btn btn-primary">Save</button>
-            <input type="submit" id="update-canvas-btn" class="d-none btn btn-primary">Update</button>
         </form>
-    </div>
-
-    <div id="cardContainer" class="container mt-3">
-        <div id="card-row" class="row">
-            <!--Cards go here, added by JS-->
-        </div>
+        
     </div>
 </body>
 

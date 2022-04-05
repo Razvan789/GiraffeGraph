@@ -1,3 +1,3 @@
 <?php
-    header("location: src/login.php?page=1");
+    header("location: https://www.beldeanu.com/GiraffeGraph/src/login.php?page=1");
 ?>
