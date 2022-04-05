@@ -91,14 +91,13 @@
                     </div>
                 </div>
             </div>
-            <h4><a href="#"> Open Most Recent Document</a></h4>
-            <h4><a href="#"> Upload a Document</a></h4>
+            <h4><a href="#"> Open Most Recent Giraffe</a></h4>
+            <h4><a href="#"> Upload a Giraffe</a></h4>
             <h4><a href="./cloudDocuments_NA.html"> Cloud Giraffes</a></h4>
-            <h4><a href="#"> Start with a Canvas</a></h4>
         </div>
 
 			<div class="about-giraffestate">
-				<h3>What is GiraffeState?</h3>
+				<h3>What is GiraffeHraph?</h3>
 				<br>
 				
             	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

@@ -19,14 +19,14 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="gallery.php">Gallery</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">My Giraffes</a>
+                        <a class="nav-link" href="cloudGiraffes.php">My Giraffes</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
+                        <a class="nav-link" href="help.php">Help</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="canvas_page.php">Start Drawing</a>
@@ -58,10 +58,10 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="gallery.php">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
+                        <a class="nav-link" href="help.php">Help</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
                         <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
