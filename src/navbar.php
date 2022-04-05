@@ -19,7 +19,7 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="gallery.php">Gallery</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">My Giraffes</a>
+                        <a class="nav-link" href="my_giraffes.php">My Giraffes</a>
                     </li>
                     
                     <li class="nav-item">
