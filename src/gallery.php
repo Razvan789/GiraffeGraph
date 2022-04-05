@@ -1,9 +1,15 @@
 <?php
 include("config.php");
 session_start();
+if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
+    $searchType = $_GET['searchType'];
+    $searchTerm = $_GET['searchTerm'];
+    $sql = "SELECT * FROM gallery where $searchType=$searchTerm";
+} else {
+    $sql = "SELECT * FROM gallery";
+}
 $gallery = [];
-
-$sql = "SELECT * FROM gallery";
+$errors = [];
 $statement = $db->prepare($sql);
 $statement->execute();
 $gallery = $statement->fetchAll();
@@ -28,12 +34,13 @@ $statement->closeCursor();
     <h1 class="text-center">Temp Gallery for Display purposes</h1>
     <form action="" method="get">
         <div class="input-group mb-3">
-            <select class="dropdown-toggle" aria-label="searchItem">
-                <option value="1" selected>Title</option>
-                <option value="2">User</option>
-                <option value="3">Date</option>
+            <select class="dropdown-toggle" name="searchType" aria-label="searchItem">
+                <option value="Title" selected>Title</option>
+                <option value="UID">User</option>
+                <option value="GID">GID</option>
             </select>
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+            <input type="text" class="form-control" name="searchTerm" aria-label="Text input with dropdown button">
+            <input type="submit" class="btn btn-outline-primary" value="Search">
         </div>
     </form>
     <div class="row row-cols-1 row-cols-md-3 g-4">
