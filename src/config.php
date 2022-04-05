@@ -5,6 +5,7 @@
        $password = 'Paul2002!@#';
        $host = "beldeanu.com";
        $site = "GiraffeGraph";
+       $https = "https://";
    try{
        $db = new PDO($dsn, $username, $password);
    } catch (Exception $e){
