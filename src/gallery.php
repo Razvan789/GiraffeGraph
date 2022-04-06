@@ -5,10 +5,10 @@ $statement;
 if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     $searchType = $_GET['searchType'];
     $searchTerm = $_GET['searchTerm'];
-    $sql = "SELECT * FROM gallery WHERE :searchType=:searchTerm";
+    $sql = "SELECT * FROM gallery WHERE $searchType=$searchTerm";
     $statement = $db->prepare($sql);
-    $statement->bindValue(':searchType', $searchType);
-    $statement->bindValue(':searchTerm', $searchTerm);
+    //$statement->bindValue(':searchType', $searchType);
+    //$statement->bindValue(':searchTerm', $searchTerm);
 } else {
     $sql = "SELECT * FROM gallery";
     $statement = $db->prepare($sql);
