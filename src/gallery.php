@@ -4,7 +4,7 @@ session_start();
 if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     $searchType = $_GET['searchType'];
     $searchTerm = $_GET['searchTerm'];
-    $sql = "SELECT * FROM gallery where $searchType=$searchTerm";
+    $sql = "SELECT * FROM gallery where $searchType='$searchTerm'";
 } else {
     $sql = "SELECT * FROM gallery";
 }
