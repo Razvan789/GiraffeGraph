@@ -8,6 +8,6 @@ if(isset($_POST['send-canvas'])) {
     $statement = $db->prepare($sql);
     $statement->execute();
     $statement->closeCursor();
-    header("location: gallery.php?filter=user&user=$login_session_UID");
+    header("location: ../../gallery.php?filter=user&user=$login_session_UID");
 }
 ?>
