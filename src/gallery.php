@@ -5,7 +5,6 @@ $statement;
 if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     $searchType = $_GET['searchType'];
     $searchTerm = $_GET['searchTerm'];
-    echo "$searchTerm is the term\n$searchType is the type";
     $sql = "SELECT * FROM gallery WHERE :searchType=:searchTerm";
     $statement = $db->prepare($sql);
     $statement->bindValue(':searchType', $searchType);
