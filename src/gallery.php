@@ -30,11 +30,11 @@ $statement->closeCursor();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 </head>
 
 <body>
     <?php include("navbar.php") ?>
-    <h1 class="text-center">Temp Gallery for Display purposes</h1>
     <form action="" method="get">
         <div class="input-group mb-3">
             <select class="dropdown-toggle" name="searchType" aria-label="searchItem">
@@ -46,7 +46,8 @@ $statement->closeCursor();
             <input type="submit" class="btn btn-outline-primary" value="Search">
         </div>
     </form>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div data-masonry='{"percentPosition": true }' style="justify-content:center" class="row row-cols-md-3 g-4">
+    <!-- <div class="row row-cols-1 row-cols-md-3 g-4">         class="row row-cols-md-4 g-4" -->
         <?php foreach ($gallery as $item) : ?>
             <div class="col">
                 <div class="card" style="width: fit-content;">
