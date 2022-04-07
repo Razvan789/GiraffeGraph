@@ -1,16 +1,20 @@
 <?php
-include("config.php");
+include("scripts/php_scripts/config.php");
 session_start();
+$statement;
 if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     $searchType = $_GET['searchType'];
     $searchTerm = $_GET['searchTerm'];
-    $sql = "SELECT * FROM gallery where $searchType=$searchTerm";
+    $sql = "SELECT * FROM gallery WHERE $searchType=$searchTerm";
+    $statement = $db->prepare($sql);
+    //$statement->bindValue(':searchType', $searchType);
+    //$statement->bindValue(':searchTerm', $searchTerm);
 } else {
     $sql = "SELECT * FROM gallery";
+    $statement = $db->prepare($sql);
 }
 $gallery = [];
 $errors = [];
-$statement = $db->prepare($sql);
 $statement->execute();
 $gallery = $statement->fetchAll();
 $statement->closeCursor();
@@ -26,7 +30,6 @@ $statement->closeCursor();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="scripts/login.js" defer></script>
 </head>
 
 <body>

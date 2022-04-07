@@ -44,11 +44,11 @@ if (isset($_POST['submit_email'])) {
         // Send email to user with the token in a link they can click on
         $to = $email;
         $subject = "Password Reset";
-        $msg = "Hi there,  Please click <a href ='https://www.$host/$site/src/newPass.php?token=$token'>Here</a> or visit https://www.$host/$site/src/newPass.php?token=$token to reset your password on our site";
+        $msg = "Hi there,  Please visit https://www.$host/$site/src/newPass.php?token=$token to reset your password on our site";
         $msg = wordwrap($msg, 70);
         $headers = "From: password-reset@$host";
         mail($to, $subject, $msg, $headers);
-        array_push($messages, "We sent a password Reset to your email</span>");
+        array_push($messages, "We sent a password Reset to your email");
     }
 }
 
@@ -65,7 +65,7 @@ if (isset($_GET['token'])) {
     $statement->closeCursor();
     //Checks to see if the token even exists    
     if (count($results) < 1) {
-        header("location: resetPass.php?error=invalidToken");
+        header("location: ../../resetPass.php?error=invalidToken");
     }
 }
 
@@ -88,6 +88,6 @@ if (isset($_POST['new_pass'])) {
         $statement->execute();
         $statement->closeCursor();
         $_SESSION['reset_password'] = "Your password has been reset for $email";
-        header('location: login.php?page=1');
+        header('location: ../../login.php?page=1');
     }
 }
