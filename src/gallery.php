@@ -18,7 +18,6 @@ $errors = [];
 $statement->execute();
 $gallery = $statement->fetchAll();
 $statement->closeCursor();
-echo $_SESSION['login_user']
 ?>
 <html lang="en">
 
