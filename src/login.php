@@ -26,7 +26,7 @@ if (isset($_POST["login"])) {
         if ($row != NULL) {
             $hashedPass = $row['Pass'];
             if (password_verify($mypassword, $hashedPass)) {
-                $_SESSION['login_user'] = $myusername;
+                $_SESSION['login_user'] = $row['UID'];
                 header("location: home.php");
             } else {
                 array_push($errors, "Your Login Name or Password is invalid");
