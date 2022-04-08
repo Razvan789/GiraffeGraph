@@ -4,11 +4,11 @@ session_start();
 $statement;
 if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     $searchType = $_GET['searchType'];
-    $searchTerm = $_GET['searchTerm'];
+    $searchTerm = intval($_GET['searchTerm']);
     $sql = "SELECT * FROM gallery WHERE $searchType=$searchTerm";
     $statement = $db->prepare($sql);
-    //$statement->bindValue(':searchType', $searchType);
-    //$statement->bindValue(':searchTerm', $searchTerm);
+    //$statement->bindValue(1, $searchType, PDO::PARAM_STR);
+    //$statement->bindValue(2, $searchTerm, PDO::PARAM_INT);
 } else {
     $sql = "SELECT * FROM gallery";
     $statement = $db->prepare($sql);
@@ -18,6 +18,7 @@ $errors = [];
 $statement->execute();
 $gallery = $statement->fetchAll();
 $statement->closeCursor();
+echo $_SESSION['login_user']
 ?>
 <html lang="en">
 
@@ -31,10 +32,11 @@ $statement->closeCursor();
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
 </head>
 
 <body>
-    <?php include("navbar.php") ?>
+    <?php include("navbar.php")?>
     <form action="" method="get">
         <div class="input-group mb-3">
             <select class="dropdown-toggle" name="searchType" aria-label="searchItem">
@@ -46,7 +48,7 @@ $statement->closeCursor();
             <input type="submit" class="btn btn-outline-primary" value="Search">
         </div>
     </form>
-    <div data-masonry='{"percentPosition": true }' style="justify-content:center" class="row row-cols-md-3 g-4">
+    <div data-masonry='{"percentPosition": true }' class="row row-cols-md-3 g-2">
     <!-- <div class="row row-cols-1 row-cols-md-3 g-4">         class="row row-cols-md-4 g-4" -->
         <?php foreach ($gallery as $item) : ?>
             <div class="col">
@@ -54,6 +56,12 @@ $statement->closeCursor();
                     <img src="<?php echo $item['Image'] ?>" class="card-img-top" alt="Img:<?php echo $item['GID'] ?>">
                     <div class="card-body">
                         <h5 class="card-title">Title: <?php echo $item['Title'] ?></h5>
+                        <?php if(isset($_SESSION['login_user']) && $_SESSION['login_user'] == $item['UID']) :?>
+                            <form action="" method="post">
+                                <input type="hidden" name="GID" value="<?php echo $item['GID']?>">
+                                <input type="submit" class="btn btn-primary" value="Delete">
+                            </form>
+                        <?php endif?>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by UserID: <?php echo $item['UID'] ?></small>
