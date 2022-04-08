@@ -56,9 +56,9 @@ $statement->closeCursor();
                     <div class="card-body">
                         <h5 class="card-title">Title: <?php echo $item['Title'] ?></h5>
                         <?php if(isset($_SESSION['login_user']) && $_SESSION['login_user'] == $item['UID']) :?>
-                            <form action="" method="post">
+                            <form action="scripts/php_scripts/deleteCanvas.php" method="post">
                                 <input type="hidden" name="GID" value="<?php echo $item['GID']?>">
-                                <input type="submit" class="btn btn-primary" value="Delete">
+                                <input type="submit" class="btn btn-primary" name="delete" value="Delete">
                             </form>
                         <?php endif?>
                     </div>
