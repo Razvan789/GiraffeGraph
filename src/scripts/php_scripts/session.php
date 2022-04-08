@@ -3,7 +3,7 @@
    session_start();
    
    $user_check = $_SESSION['login_user'];
-   $sql = "SELECT * from users where Email = '$user_check' ";
+   $sql = "SELECT * from users where UID = '$user_check' ";
    $statement = $db->prepare($sql);
    $statement->execute();
    $row = $statement->fetch();
@@ -12,7 +12,7 @@
    $login_session_name = $row['FirstName'];
    $login_session_UID = $row['UID'];
    if(!isset($_SESSION['login_user'])){
-      header("location: ../../login.php?page=1");
+      header("location: login.php?page=1");
       die();
    }
 ?>
