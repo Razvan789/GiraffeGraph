@@ -33,7 +33,7 @@ if ($loggedIn) : ?>
                     </li>
                     <li class="nav-item">
                         <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
-                        <a class="btn btn-outline-danger" type="submit" href="logout.php">Logout</a>
+                        <a class="btn btn-outline-danger" type="submit" href="scripts/php_scripts/logout.php">Logout</a>
                     </li>
                 </ul>
             </div>
