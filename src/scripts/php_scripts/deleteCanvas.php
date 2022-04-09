@@ -9,6 +9,6 @@ if(isset($_POST['delete'])) {
     $statement->execute();
     $statement->closeCursor();
     echo "Deleted";
-    header("location: ../../gallery.php");
+    header("location: /$site/src/gallery.php");
 }
 ?>
