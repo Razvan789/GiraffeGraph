@@ -8,8 +8,6 @@ if(isset($_POST['delete'])) {
     $statement->bindValue(":gid", $GID);
     $statement->execute();
     $statement->closeCursor();
-    echo "Deleted";
-    header("location: /
-    $site/src/gallery.php");
+    header("location: https://www.beldeanu.com/GiraffeGraph/src/gallery.php");
 }
 ?>
