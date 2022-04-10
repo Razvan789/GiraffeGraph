@@ -5,7 +5,9 @@ $errors = [];
 $messages = [];
 $resetPassword = isset($_SESSION['reset_password']) ? $_SESSION['reset_password'] : "";
 
-
+if(isset($_SESSION['login_user'])) {
+    header("location: home.php");
+}
 if (isset($_POST["login"])) {
     // username and password sent from form 
 

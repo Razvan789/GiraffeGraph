@@ -10,10 +10,9 @@ const hiddenCanvasInput = document.querySelector("[data-target=canvas-hidden]");
 function resizeCanvas() {
     canvas.height = window.innerHeight *.8;
     canvas.width = window.innerWidth * .8;
-    if(window.innerWidth < 500) {
-        canvas.width = window.innerWidth *.9
-    } else {
-        canvas.width = window.innerWidth * .8;
+    if(window.innerWidth < 990) {
+        canvas.width = window.innerWidth *.99;
+        canvas.height = window.innerHeight * .99;
     }
 }
 

@@ -20,32 +20,64 @@ include("scripts/php_scripts/session.php");
     <div style="display:none;">
         <?php include("navbar.php") ?>
     </div>
-    <div class="canvas-main">
-        <div class="canvasControls">
-            <div class="left">
-                <button id="clearCanv" class="btn btn-outline-secondary" type="button">Clear</button>
-                <label>Color:</label>
-                <input type="color" class="form-control-color" id="color-picker" value="#563d7c" title="Choose your color">
-                <label for="size-picker">Size:</label>
-                <select name="size-picker" id="size-picker">
-                    <option value="1" selected>1px</option>
-                    <option value="2">2px</option>
-                    <option value="5">5px</option>
-                    <option value="10">10px</option>
-                    <option value="20">20px</option>
-                </select>
+    <div class="canvas-main mobile-body">
+        <div class="mini-nav">
+            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">&#9776</button>
+            <a style="display: block;" class="btn btn-secondary" href="home.php">&#8592</a>
+        </div>
+        <div class="offcanvas offcanvas-top" style="height:10vh" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div style="display:flex; justify-content:space-between" class="offcanvas-body">
+                <div class="canvasControls">
+                    <div class="left">
+                        <button id="clearCanv" class="btn btn-outline-secondary" type="button">Clear</button>
+                        <label>Color:</label>
+                        <input type="color" class="form-control-color" id="color-picker" value="#563d7c" title="Choose your color">
+                        <label for="size-picker">Size:</label>
+                        <select name="size-picker" id="size-picker">
+                            <option value="1" selected>1px</option>
+                            <option value="2">2px</option>
+                            <option value="5">5px</option>
+                            <option value="10">10px</option>
+                            <option value="20">20px</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            
         </div>
         <canvas id="canvas"></canvas>
-        <form action="scripts/php_scripts/sendCanvas.php" method="POST">
-            <input type="hidden" name="img" data-target="canvas-hidden" value="TEMP">
-            <input type="submit" id="saveCanv" type="button" name="send-canvas"class="btn btn-primary">
-            <div class="right">
-                <a class="btn btn-secondary" href="home.php">Go back home</a>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#titleModal">
+            Name your creation
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="titleModal" tabindex="-1" aria-labelledby="titleModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Name your Drawing</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="scripts/php_scripts/sendCanvas.php" method="POST">
+                        <input type="hidden" name="img" data-target="canvas-hidden" value="TEMP">
+                        <div class="modal-body">
+                            <input type="text" name="title" class="form-control">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <input type="submit" id="saveCanv" type="button" name="send-canvas" data-bs-dismiss="modal" class="btn btn-primary">
+                        </div>
+                    </form>
+
+                </div>
             </div>
-        </form>
-        
+        </div>
+        <!-- <form action="scripts/php_scripts/sendCanvas.php" method="POST">
+            <input type="hidden" name="img" data-target="canvas-hidden" value="TEMP">
+            <input type="submit" id="saveCanv" type="button" name="send-canvas" class="btn btn-primary">
+        </form> -->
+
     </div>
 </body>
 

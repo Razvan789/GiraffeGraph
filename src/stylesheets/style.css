@@ -1,6 +1,5 @@
 #canvas {
     border: 2px solid black;
-    margin-top: .5%;
 }
 
 html {
@@ -8,7 +7,7 @@ html {
 }
 
 body {
-    min-width: 400px;
+    min-width: 340px;
 }
 
 .card {
@@ -272,6 +271,17 @@ span.clickable {
     margin: auto;
 }
 
+.canvas-main.mobile-body {
+    margin: 0;
+    width: 100vw;
+}
+
+.canvas-main.mobile-body #canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 .image-container {
     width: 500px;
     margin: auto;
@@ -281,4 +291,10 @@ span.clickable {
 
 .image-container * {
     margin: 20px;
+}
+
+.mini-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: .5em;
 }
