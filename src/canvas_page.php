@@ -23,6 +23,7 @@ include("scripts/php_scripts/session.php");
     <div class="canvas-main mobile-body">
         <div class="mini-nav">
             <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">&#9776</button>
+            <h3>Drawing Pad</h3>
             <a style="display: block;" class="btn btn-secondary" href="home.php">&#8592</a>
         </div>
         <div class="offcanvas offcanvas-top" style="height:10vh" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
@@ -47,7 +48,7 @@ include("scripts/php_scripts/session.php");
         </div>
         <canvas id="canvas"></canvas>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#titleModal">
+        <button type="button" class="btn btn-primary bottom-right" data-bs-toggle="modal" data-bs-target="#titleModal">
             Name your creation
         </button>
 
@@ -73,11 +74,6 @@ include("scripts/php_scripts/session.php");
                 </div>
             </div>
         </div>
-        <!-- <form action="scripts/php_scripts/sendCanvas.php" method="POST">
-            <input type="hidden" name="img" data-target="canvas-hidden" value="TEMP">
-            <input type="submit" id="saveCanv" type="button" name="send-canvas" class="btn btn-primary">
-        </form> -->
-
     </div>
 </body>
 
