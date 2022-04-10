@@ -9,11 +9,11 @@ const modalButton = document.querySelector('#open-modal-btn');
 const hiddenCanvasInput = document.querySelector("[data-target=canvas-hidden]");
 function resizeCanvas() {
     if (window.innerWidth < 990) {
-        canvas.width = window.innerWidth * .99;
-        canvas.height = window.innerHeight * .99;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     } else {
-        canvas.height = window.innerHeight * .8;
-        canvas.width = window.innerWidth * .8;
+        canvas.height = window.innerHeight * .995;
+        canvas.width = window.innerWidth * .995;
     }
 }
 
