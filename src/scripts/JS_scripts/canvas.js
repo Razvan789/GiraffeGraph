@@ -8,11 +8,12 @@ const sizeSelected = document.querySelector("#size-picker");
 const modalButton = document.querySelector('#open-modal-btn');
 const hiddenCanvasInput = document.querySelector("[data-target=canvas-hidden]");
 function resizeCanvas() {
-    canvas.height = window.innerHeight *.8;
-    canvas.width = window.innerWidth * .8;
-    if(window.innerWidth < 990) {
-        canvas.width = window.innerWidth *.99;
+    if (window.innerWidth < 990) {
+        canvas.width = window.innerWidth * .99;
         canvas.height = window.innerHeight * .99;
+    } else {
+        canvas.height = window.innerHeight * .8;
+        canvas.width = window.innerWidth * .8;
     }
 }
 
@@ -87,38 +88,36 @@ window.addEventListener('load', () => {
     //Set up button events
     //openButton.onclick = displayCanvas;
     clearButton.onclick = clearCanvas;
-    modalButton.onclick = clearCanvas;
+    //modalButton.onclick = clearCanvas;
     console.log("Loaded Canvas");
 });
 
 window.addEventListener('resize', resizeCanvas);
 
 
-document.querySelector('#canvasModal').addEventListener('show.bs.modal', function (e) {
-    var canvas = document.querySelector("#canvas");
-    var  context = canvas.getContext("2d");
-    var img = e.relatedTarget.querySelector('#canImg');
-    if (img != null) {
-        context.drawImage(img, 0, 0);
-        updateButton.classList.remove("d-none");
-        saveButton.classList.add("d-none");
-        img.classList.add('current-opened');
-    } else {
-        updateButton.classList.add("d-none");
-        saveButton.classList.remove("d-none");
-        console.log('no image');
-    }
-})
+// document.querySelector('#canvasModal').addEventListener('show.bs.modal', function (e) {
+//     var canvas = document.querySelector("#canvas");
+//     var context = canvas.getContext("2d");
+//     var img = e.relatedTarget.querySelector('#canImg');
+//     if (img != null) {
+//         context.drawImage(img, 0, 0);
+//         updateButton.classList.remove("d-none");
+//         saveButton.classList.add("d-none");
+//         img.classList.add('current-opened');
+//     } else {
+//         updateButton.classList.add("d-none");
+//         saveButton.classList.remove("d-none");
+//         console.log('no image');
+//     }
+// })
 
-document.querySelector('#canvasModal').addEventListener('hidden.bs.modal', function () {
-    var openedImg = document.querySelector('.current-opened');
-    if(openedImg)
-        openedImg.classList.remove('current-opened');
-});
+// document.querySelector('#canvasModal').addEventListener('hidden.bs.modal', function () {
+//     var openedImg = document.querySelector('.current-opened');
+//     if (openedImg)
+//         openedImg.classList.remove('current-opened');
+// });
 
 saveButton.addEventListener('click', saveCanvas);
-
-updateButton.addEventListener('click', updateCanvas);
 
 
 function saveCanvas() {
