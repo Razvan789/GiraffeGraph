@@ -35,32 +35,39 @@ $statement->closeCursor();
 </head>
 
 <body>
-    <?php include("navbar.php")?>
-    <form action="" method="get">
-        <div class="input-group mb-3">
-            <select class="dropdown-toggle" name="searchType" aria-label="searchItem">
-                <option value="Title" selected>Title</option>
-                <option value="UID">User</option>
-                <option value="GID">GID</option>
-            </select>
-            <input type="text" class="form-control" name="searchTerm" aria-label="Text input with dropdown button">
-            <input type="submit" class="btn btn-outline-primary" value="Search">
+    <?php include("navbar.php") ?>
+    <div class="top-bar">
+        <h1>Gallery</h1>
+        <div class="search-bar">
+            <form action="" method="get">
+                <div class="input-group mb-3">
+                    <select class="dropdown-toggle form-select" style="flex:1;"name="searchType" aria-label="searchItem">
+                        <option value="Title" selected>Title</option>
+                        <option value="UID">User</option>
+                        <option value="GID">GID</option>
+                    </select>
+                    <input type="text" class="form-control" name="searchTerm" style="flex:5" aria-label="Text input with dropdown button">
+                    <input type="submit" class="btn btn-outline-primary" style="flex:1" value="Search">
+                </div>
+            </form>
         </div>
-    </form>
-    <div data-masonry='{"percentPosition": true }' class="row row-cols-md-3 g-2">
-    <!-- <div class="row row-cols-1 row-cols-md-3 g-4">         class="row row-cols-md-4 g-4" -->
+    </div>
+    <div data-masonry='{"percentPosition": true}' style="margin:auto; width:90vw;" class="row row-cols-md-3 g-2">
+        <!-- <div class="row row-cols-1 row-cols-md-3 g-4">         class="row row-cols-md-4 g-4" -->
         <?php foreach ($gallery as $item) : ?>
             <div class="col">
-                <div class="card" style="width: fit-content;">
+                <div class="card" style="min-width: 10em;
+                                        max-width: 30em;
+                                        width:auto;">
                     <img src="<?php echo $item['Image'] ?>" class="card-img-top" alt="Img:<?php echo $item['GID'] ?>">
                     <div class="card-body">
-                        <h5 class="card-title">Title: <?php echo $item['Title'] ?></h5>
-                        <?php if(isset($_SESSION['login_user']) && $_SESSION['login_user'] == $item['UID']) :?>
+                        <h5 class="card-title"><?php echo $item['Title'] ?></h5>
+                        <?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == $item['UID']) : ?>
                             <form action="scripts/php_scripts/deleteCanvas.php" method="post">
-                                <input type="hidden" name="GID" value="<?php echo $item['GID']?>">
+                                <input type="hidden" name="GID" value="<?php echo $item['GID'] ?>">
                                 <input type="submit" class="btn btn-primary" name="delete" value="Delete">
                             </form>
-                        <?php endif?>
+                        <?php endif ?>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by UserID: <?php echo $item['UID'] ?></small>
