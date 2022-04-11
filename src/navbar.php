@@ -32,7 +32,6 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="canvas_page.php">Start Drawing</a>
                     </li>
                     <li class="nav-item">
-                        <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
                         <a class="btn btn-outline-danger" type="submit" href="scripts/php_scripts/logout.php">Logout</a>
                     </li>
                 </ul>
@@ -64,7 +63,6 @@ if ($loggedIn) : ?>
                         <a class="nav-link" href="aboutUs.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <!---<a class="nav-link red" href="/testZone.html">Logout</a>-->
                         <a class="btn btn-outline-success" type="submit" href="login.php?page=1">Login</a>
                     </li>
                 </ul>
