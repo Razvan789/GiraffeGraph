@@ -5,7 +5,7 @@ $site = "GiraffeGraph";
 $https = "https://";
 
 if(!isset($_SERVER['HTTPS'])) {
-    header("location: https://www.$host/$site");
+    //header("location: https://www.$host/$site");
 }
 //For Database connections, include file when using db
 $dsn = 'mysql:host=beldeanu.com;dbname=razvan_GiraffeGraph';

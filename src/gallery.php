@@ -10,7 +10,7 @@ if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     //$statement->bindValue(1, $searchType, PDO::PARAM_STR);
     //$statement->bindValue(2, $searchTerm, PDO::PARAM_INT);
 } else {
-    $sql = "SELECT * FROM gallery inner join users gallery.UID = users.UID";
+    $sql = "SELECT gallery.*, users.FirstName, users.LastName FROM gallery inner join users on gallery.UID = users.UID";
     $statement = $db->prepare($sql);
 }
 $gallery = [];
