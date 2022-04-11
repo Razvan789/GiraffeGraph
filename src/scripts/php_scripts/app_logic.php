@@ -65,7 +65,7 @@ if (isset($_GET['token'])) {
     $statement->closeCursor();
     //Checks to see if the token even exists    
     if (count($results) < 1) {
-        header("location: ../../resetPass.php?error=invalidToken");
+        header("location: resetPass.php?error=invalidToken");
     }
 }
 
@@ -88,6 +88,6 @@ if (isset($_POST['new_pass'])) {
         $statement->execute();
         $statement->closeCursor();
         $_SESSION['reset_password'] = "Your password has been reset for $email";
-        header('location: ../../login.php?page=1');
+        header('location: login.php?page=1');
     }
 }
