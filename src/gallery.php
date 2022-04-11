@@ -5,7 +5,7 @@ $statement;
 if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     $searchType = $_GET['searchType'];
     $searchTerm = intval($_GET['searchTerm']);
-    $sql = "SELECT * FROM gallery WHERE $searchType=$searchTerm";
+    $sql = "SELECT gallery.*, users.FirstName, users.LastName FROM gallery inner join users on gallery.UID = users.UID  WHERE $searchType=$searchTerm";
     $statement = $db->prepare($sql);
     //$statement->bindValue(1, $searchType, PDO::PARAM_STR);
     //$statement->bindValue(2, $searchTerm, PDO::PARAM_INT);
@@ -70,7 +70,7 @@ $statement->closeCursor();
                         <?php endif ?>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by UserID: <?php echo $item['FirstName'] ?></small>
+                        <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by <?php echo $item['FirstName'] . " " . $item['LastName']?></small>
                     </div>
                 </div>
             </div>
