@@ -10,7 +10,7 @@ if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     //$statement->bindValue(1, $searchType, PDO::PARAM_STR);
     //$statement->bindValue(2, $searchTerm, PDO::PARAM_INT);
 } else {
-    $sql = "SELECT * FROM gallery";
+    $sql = "SELECT * FROM gallery inner join users gallery.UID = users.UID";
     $statement = $db->prepare($sql);
 }
 $gallery = [];
@@ -70,7 +70,7 @@ $statement->closeCursor();
                         <?php endif ?>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by UserID: <?php echo $item['UID'] ?></small>
+                        <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by UserID: <?php echo $item['FirstName'] ?></small>
                     </div>
                 </div>
             </div>
