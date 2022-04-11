@@ -1,4 +1,4 @@
-<?php include("app_logic.php") ?>
+<?php include('scripts/php_scripts/app_logic.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
