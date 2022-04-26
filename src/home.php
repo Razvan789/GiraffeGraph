@@ -96,24 +96,21 @@ include('scripts/php_scripts/session.php');
         </div>
 
 			<div class="about-giraffestate">
-				<h3>What is GiraffeGraph?</h3>
+				<h3>What is GiraffeState?</h3>
 				<br>
 				
-            	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                	dolore magna aliqua. Ornare arcu odio ut sem. Urna nunc id cursus metus aliquam eleifend mi. Diam donec
-                	adipiscing tristique risus nec feugiat in fermentum. Arcu odio ut sem nulla pharetra diam sit amet nisl.
-               		Consectetur libero id faucibus nisl tincidunt eget nullam non. Tellus integer feugiat scelerisque varius
-                	morbi enim nunc faucibus. Non odio euismod lacinia at quis risus sed vulputate. Eu consequat ac felis
-                	donec et odio pellentesque. Sed ullamcorper morbi tincidunt ornare massa eget. Orci dapibus ultrices in
-                	iaculis nunc sed augue lacus viverra.</p>
+            	<p>GiraffeState started as a joke between two friends, a funny idea spawned from the creation of a goofy, five minute
+                    blocky giraffe that got both of them laughing uncontrollably. It was the perfect project for a web development 
+                    class and would let both of them use skills they'd be accumulating through an internship and for their degree. 
+                    Little did they know how much fun they'd have making it, and it has expanded into the site that you see today.
+                </p>
 				
-            	<p>Felis bibendum ut tristique et egestas quis ipsum. Porttitor rhoncus dolor purus non enim praesent
-                	elementum facilisis. Dignissim enim sit amet venenatis urna cursus. Semper viverra nam libero justo
-                	laoreet sit amet. Et netus et malesuada fames ac turpis egestas. Malesuada pellentesque elit eget
-                	gravida cum sociis natoque penatibus. Sit amet venenatis urna cursus eget nunc scelerisque. Ipsum dolor
-                	sit amet consectetur adipiscing elit duis tristique sollicitudin. Bibendum ut tristique et egestas quis
-                	ipsum suspendisse ultrices gravida. In fermentum et sollicitudin ac orci. Pellentesque dignissim enim
-                	sit amet venenatis urna cursus.</p>
+            	<p>
+                    This website is a fun way for people to create drawings of any kind and share them through the use of the gallery 
+                    page. Without an account, you can take a look at the gallery page and see all kinds of images drawn by people 
+                    from all different places and accounts. Explore your creativity and make fun, funny drawings to share with all 
+                    kinds of people! 
+                </p>
 			</div>
 		</div>
 		<footer>GiraffeState</footer>
