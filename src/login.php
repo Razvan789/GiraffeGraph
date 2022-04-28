@@ -159,9 +159,18 @@ function checkPage($currPage)
         </form>
 
         <div data-text="login" class="login-text <?php checkPage(1) ?>">
-            <h3>What is GiraffeGraph?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab, beatae. Aut sequi optio commodi quas, aliquid doloribus saepe, corporis soluta consectetur amet repudiandae at, consequatur quos ullam vero sint officia maiores tenetur. Officiis impedit nisi labore fugiat at, ut necessitatibus commodi assumenda voluptatibus distinctio! Illum ut laborum sit laudantium consequatur maxime blanditiis, esse maiores ratione repellendus autem iure illo labore harum dolore voluptate velit! Porro quasi ut esse culpa minima! Facilis beatae a maiores, quod atque suscipit officia optio eaque porro, maxime sunt totam velit, pariatur cupiditate laudantium corporis! Eligendi, labore officia velit saepe error qui quo id ut iusto, voluptas eaque hic est ab amet quis rem reiciendis deleniti, inventore esse explicabo! Nihil placeat accusamus labore blanditiis aperiam quaerat voluptate, dicta animi enim officia recusandae. Fugit, temporibus officiis voluptatibus alias, ad repellat assumenda perferendis molestias autem sapiente numquam! Natus magni maiores sed tempora asperiores, delectus sequi quas et fugit.</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, repellendus consequuntur. Necessitatibus et voluptas, aliquid exercitationem perspiciatis magnam cum aspernatur voluptate in quos fugit nulla quas sint similique ipsum consectetur, facilis ipsa nobis adipisci asperiores sunt deleniti nihil, eaque numquam! Vel itaque rem unde maxime blanditiis consequuntur? Laborum deserunt debitis repellendus sint nemo magni maiores placeat? Similique doloremque, fugit officia expedita laborum eius nisi molestiae illo iure eaque quisquam facilis nobis placeat consectetur quaerat modi nemo sapiente saepe unde, odio deserunt! Debitis, aliquam! Ea magni quisquam perspiciatis expedita quas. Necessitatibus a modi commodi alias atque adipisci, repudiandae assumenda quisquam laboriosam.</p>
+            <p>GiraffeState started as a joke between two friends, a funny idea spawned from the creation of a goofy, five minute
+                blocky giraffe that got both of them laughing uncontrollably. It was the perfect project for a web development 
+                class and would let both of them use skills they'd be accumulating through an internship and for their degree. 
+                Little did they know how much fun they'd have making it, and it has expanded into the site that you see today.
+            </p>
+			
+            <p>
+                This website is a fun way for people to create drawings of any kind and share them through the use of the gallery 
+                page. Without an account, you can take a look at the gallery page and see all kinds of images drawn by people 
+                from all different places and accounts. Explore your creativity and make fun, funny drawings to share with all 
+                kinds of people!
+            </p>
         </div>
     </div>
     </div>

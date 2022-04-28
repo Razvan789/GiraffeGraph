@@ -316,3 +316,13 @@ span.clickable {
     display: flex;
     justify-content: space-between;
 }
+
+#giraffe_video {
+    align-content: center;
+}
+
+.about_display {
+    width: 50vw;
+    margin: auto;
+    text-align: center;
+}
