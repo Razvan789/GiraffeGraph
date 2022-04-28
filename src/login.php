@@ -159,11 +159,26 @@ function checkPage($currPage)
         </form>
 
         <div data-text="login" class="login-text <?php checkPage(1) ?>">
+<<<<<<< HEAD
             <h3>What is GiraffeGraph?</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti reprehenderit libero, facilis quasi tempora, quidem veritatis dignissimos, voluptatum placeat neque odit harum impedit! Unde illum vero voluptatibus animi pariatur ea corporis autem ex. Officiis distinctio quae vitae hic tempora alias nam molestiae eligendi ducimus dolores est veritatis error, at, repellat accusamus similique atque quidem odio quos libero quia velit tenetur perferendis! Incidunt, assumenda natus sunt vero beatae culpa cum animi eligendi. Ex, obcaecati, autem eveniet adipisci nostrum optio odit necessitatibus odio beatae similique ratione nihil nulla, totam magni! Similique sint corrupti labore, dolore quo ratione provident incidunt tenetur molestiae maiores.</p>
             <!-- <p>This is a creative and enducational project created and managed by Razvan Beldeanu and Lindsey Andrews. The idea came from working on <a href="https://www.Grafstate.com">Grafstate.com</a> a software used to be able to take math notes easier on a computer.</p> -->
             <h3>What about GrafState?</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae hic voluptate asperiores sint illo facilis consectetur, ullam nam magnam excepturi incidunt est quibusdam reprehenderit nihil molestias dolorem, blanditiis architecto at consequatur nulla. Praesentium facilis corrupti in nobis debitis aliquid consequuntur inventore repellendus, sunt iure officia ipsa molestiae similique veritatis magni? Et placeat, iure ducimus sint ab nobis rem esse porro sit doloremque eveniet. Iure incidunt voluptatem optio quaerat consectetur, accusamus, minima quae facilis eum facere animi, architecto odio eos? Voluptatem voluptatibus tempore tenetur! Rem, quidem dolor laboriosam magni quae repellat cupiditate architecto quam, doloribus, cum corrupti veritatis ipsam recusandae quis.</p>
+=======
+            <p>GiraffeState started as a joke between two friends, a funny idea spawned from the creation of a goofy, five minute
+                blocky giraffe that got both of them laughing uncontrollably. It was the perfect project for a web development 
+                class and would let both of them use skills they'd be accumulating through an internship and for their degree. 
+                Little did they know how much fun they'd have making it, and it has expanded into the site that you see today.
+            </p>
+			
+            <p>
+                This website is a fun way for people to create drawings of any kind and share them through the use of the gallery 
+                page. Without an account, you can take a look at the gallery page and see all kinds of images drawn by people 
+                from all different places and accounts. Explore your creativity and make fun, funny drawings to share with all 
+                kinds of people!
+            </p>
+>>>>>>> 91034dd844735484f2993d71ffbf61411fc332a2
         </div>
     </div>
     </div>
