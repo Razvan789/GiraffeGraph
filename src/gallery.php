@@ -2,22 +2,47 @@
 include("scripts/php_scripts/config.php");
 session_start();
 $statement;
+$errors = [];
 if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
-    $searchType = $_GET['searchType'];
-    $searchTerm = intval($_GET['searchTerm']);
-    $sql = "SELECT gallery.*, users.FirstName, users.LastName FROM gallery inner join users on gallery.UID = users.UID  WHERE gallery.$searchType=$searchTerm";
-    $statement = $db->prepare($sql);
-    //$statement->bindValue(1, $searchType, PDO::PARAM_STR);
-    //$statement->bindValue(2, $searchTerm, PDO::PARAM_INT);
+    $searchType = parseSearchType($_GET['searchType']);
+    //IF searching for int type
+    if (strcmp($searchType, "GID") == 0) {
+        $searchTerm = intval($_GET['searchTerm']);
+        $sql = "SELECT gallery.*, users.FirstName, users.LastName FROM gallery inner join users on gallery.UID = users.UID  WHERE gallery.$searchType=$searchTerm";
+        $statement = $db->prepare($sql);
+        //$statement->bindValue(1, $searchType, PDO::PARAM_STR);
+        //$statement->bindValue(2, $searchTerm, PDO::PARAM_INT);
+    } else {
+        $searchTerm = $_GET['searchTerm'];
+        if (strcmp($searchType, "User") == 0) {
+            $sql = "SELECT * FROM gallery inner join users on gallery.UID = users.UID WHERE MATCH(FirstName, LastName) AGAINST('$searchTerm');";
+            $statement = $db->prepare($sql);
+        } else {
+            $sql = "SELECT * FROM gallery inner join users on gallery.UID = users.UID WHERE MATCH(Title) AGAINST('$searchTerm')";
+            $statement = $db->prepare($sql);
+            //$statement->bindValue("searchTerm", $searchTerm, PDO::PARAM_STR);
+        }
+    }
 } else {
     $sql = "SELECT gallery.*, users.FirstName, users.LastName FROM gallery inner join users on gallery.UID = users.UID";
     $statement = $db->prepare($sql);
 }
 $gallery = [];
-$errors = [];
 $statement->execute();
 $gallery = $statement->fetchAll();
 $statement->closeCursor();
+
+function parseSearchType($type)
+{
+    global $errors;
+    //Stops SQL injection on the type
+    if (strcmp($type, "User") == 0 || strcmp($type, "Title") == 0 || strcmp($type, "GID") == 0) {
+        return $type;
+    } else {
+        array_push($errors, "Error in search");
+        return "Title";
+    }
+}
 ?>
 <html lang="en">
 
@@ -41,9 +66,9 @@ $statement->closeCursor();
         <div class="search-bar">
             <form action="" method="get">
                 <div class="input-group mb-3">
-                    <select class="dropdown-toggle form-select" style="flex:1;"name="searchType" aria-label="searchItem">
+                    <select class="dropdown-toggle form-select" style="flex:1;" name="searchType" aria-label="searchItem">
                         <option value="Title" selected>Title</option>
-                        <option value="UID">User</option>
+                        <option value="User">User</option>
                         <option value="GID">GID</option>
                     </select>
                     <input type="text" class="form-control" name="searchTerm" style="flex:5" aria-label="Text input with dropdown button">
@@ -51,6 +76,10 @@ $statement->closeCursor();
                 </div>
             </form>
         </div>
+    </div>
+
+    <div style="text-align: center;">
+        <?php include("scripts/php_scripts/messages.php") ?>
     </div>
     <div data-masonry='{"percentPosition": true}' style="margin:auto; width:90vw;" class="row row-cols-md-3 g-2">
         <!-- <div class="row row-cols-1 row-cols-md-3 g-4">         class="row row-cols-md-4 g-4" -->
@@ -70,7 +99,7 @@ $statement->closeCursor();
                         <?php endif ?>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by <?php echo $item['FirstName'] . " " . $item['LastName']?></small>
+                        <small class="text-muted">Posted: <?php echo $item['DateTime'] ?> by <?php echo $item['FirstName'] . " " . $item['LastName'] ?></small>
                     </div>
                 </div>
             </div>

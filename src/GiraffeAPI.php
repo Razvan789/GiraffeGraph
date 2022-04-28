@@ -16,6 +16,7 @@ $searchType;
 $view = 0;
 $authToken;
 
+//Auth Token Check
 if(isset($_GET['authToken'])) {
     if(!checkToken($_GET['authToken'], $db)) {
         echo "Invalid AuthToken";
@@ -26,10 +27,11 @@ if(isset($_GET['authToken'])) {
     exit;
 }
 
+//Type check
 if(isset($_GET['type'])) {
     $type = parseType($_GET['type']);
 }
-
+//View check
 if(isset($_GET['view'])) {
     $view = 1;
     echo "<div style='display: flex;width: 50vw;flex-direction: column;margin: auto;'>";
@@ -48,7 +50,39 @@ if($type == 1) {
         printArray($result);
     
 }
+//Search type
+if($type == 0) {
+    if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
+        $searchType = parseSearchType($_GET['searchType']);
+        //IF searching for int type
+        if (strcmp($searchType, "GID") == 0) {
+            $searchTerm = intval($_GET['searchTerm']);
+            $sql = "SELECT gallery.*, users.FirstName, users.LastName FROM gallery inner join users on gallery.UID = users.UID  WHERE gallery.$searchType=$searchTerm";
+            $statement = $db->prepare($sql);
+            //$statement->bindValue(1, $searchType, PDO::PARAM_STR);
+            //$statement->bindValue(2, $searchTerm, PDO::PARAM_INT);
+        } else {
+            $searchTerm = $_GET['searchTerm'];
+            if (strcmp($searchType, "User") == 0) {
+                $sql = "SELECT * FROM gallery inner join users on gallery.UID = users.UID WHERE MATCH(FirstName, LastName) AGAINST('$searchTerm');";
+                $statement = $db->prepare($sql);
+            } else {
+                $sql = "SELECT * FROM gallery inner join users on gallery.UID = users.UID WHERE MATCH(Title) AGAINST('$searchTerm')";
+                $statement = $db->prepare($sql);
+                //$statement->bindValue("searchTerm", $searchTerm, PDO::PARAM_STR);
+            }
+        }
+    } else {
+        $sql = "SELECT gallery.*, users.FirstName, users.LastName FROM gallery inner join users on gallery.UID = users.UID";
+        $statement = $db->prepare($sql);
+    }
+    $statement->execute();
+    $gallery = $statement->fetchAll();
+    $statement->closeCursor();
+    printArray($gallery);
+}
 
+//Ending div for styling if in view mode;
 if(isset($_GET['view'])) {
     $view = 1;
     echo "</div>";
@@ -66,6 +100,17 @@ function parseType($string) {
     } 
     echo "Search Type not recognized";
     exit;
+}
+
+function parseSearchType($type)
+{
+    //Stops SQL injection on the type
+    if (strcmp($type, "User") == 0 || strcmp($type, "Title") == 0 || strcmp($type, "GID") == 0) {
+        return $type;
+    } else {
+        echo "Error in search";
+        exit;
+    }
 }
 
 function getRandom($numOf, $inDB) {
@@ -99,7 +144,7 @@ function checkToken($token, $inDB) {
     $statement->execute();
     $result = $statement->fetchAll();
     $statement->closeCursor();
-    if(sizeof($result) > 0) {
+    if(count($result) > 0) {
         return true;
     }
     return false;
