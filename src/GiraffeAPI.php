@@ -14,6 +14,17 @@ $numOf = 3;
 $searchTerm;
 $searchType;
 $view = 0;
+$authToken;
+
+if(isset($_GET['authToken'])) {
+    if(!checkToken($_GET['authToken'], $db)) {
+        echo "Invalid AuthToken";
+        exit;
+    }
+} else {
+    echo "No AuthToken Provided";
+    exit;
+}
 
 if(isset($_GET['type'])) {
     $type = parseType($_GET['type']);
@@ -79,5 +90,18 @@ function printArray($objArr) {
         }
         exit;
     }
+}
+
+function checkToken($token, $inDB) {
+    $sql = "SELECT * FROM users WHERE APIToken = :token";
+    $statement = $inDB->prepare($sql);
+    $statement->bindValue('token', $token, PDO::PARAM_STR);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    $statement->closeCursor();
+    if(sizeof($result) > 0) {
+        return true;
+    }
+    return false;
 }
 ?>
