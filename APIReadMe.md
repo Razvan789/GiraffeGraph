@@ -32,8 +32,11 @@ Example:
 #### Search by Name
 In order to search by title, the user must define the following GET variables:
 >type = search
+>
 >searchType = User
+>
 >searchTerm = * Name to Search *
+>
 >authToken = * APIToken Here *
 
 Example: 
@@ -43,8 +46,11 @@ Example:
 #### Search by Gallery ID
 In order to search by title, the user must define the following GET variables:
 >type = search
+>
 >searchType = GID
+>
 >searchTerm = * ID to Search *
+>
 >authToken = * APIToken Here *
 
 Example: 
