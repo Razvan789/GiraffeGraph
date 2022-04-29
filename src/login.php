@@ -159,7 +159,10 @@ function checkPage($currPage)
         </form>
 
         <div data-text="login" class="login-text <?php checkPage(1) ?>">
-            <p>GiraffeState started as a joke between two friends, a funny idea spawned from the creation of a goofy, five minute
+            
+            <h3 style="padding-bottom: 15px;">About GiraffeGraph</h3>
+
+            <p>GiraffeGraph started as a joke between two friends, a funny idea spawned from the creation of a goofy, five minute
                 blocky giraffe that got both of them laughing uncontrollably. It was the perfect project for a web development 
                 class and would let both of them use skills they'd be accumulating through an internship and for their degree. 
                 Little did they know how much fun they'd have making it, and it has expanded into the site that you see today.
