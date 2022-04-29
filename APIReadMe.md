@@ -1,6 +1,4 @@
 # Giraffe API  v0.1.0
----
-
 The Current State of the GiraffeAPI only supports retrieving items from the database.
 
 ## First Steps
@@ -17,9 +15,9 @@ The GiraffeAPI url is `https://beldeanu.com/src/GiraffeAPI.php` followed by spec
 ### Search
 By using search, API users will be able to search the GiraffeGraph Database based on Title, Name of poster, and gallery ID.
 
-##### Search by Title
+#### Search by Title
 In order to search by title, the user must define the following GET variables:
->type = search
+>type = search\n
 >searchType = Title
 >searchTerm = * Word to search *
 >authToken = * APIToken Here *
@@ -28,7 +26,7 @@ Example:
 	In order to search for any post with the word "trees" the url would look like:
 	`https://beldeanu.com/src/GiraffeAPI.php?authToken=APIToken&type=search&searchType=Title&searchTerm=trees`
 
-##### Search by Name
+#### Search by Name
 In order to search by title, the user must define the following GET variables:
 >type = search
 >searchType = User
@@ -39,7 +37,7 @@ Example:
 	In order to search for any posted by someone with the name "Anna" the url would look like:
 	`https://beldeanu.com/src/GiraffeAPI.php?authToken=APIToken&type=search&searchType=User&searchTerm=Anna`
 
-##### Search by Gallery ID
+#### Search by Gallery ID
 In order to search by title, the user must define the following GET variables:
 >type = search
 >searchType = GID

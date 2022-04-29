@@ -73,7 +73,7 @@ if (isset($_POST['register'])) {
     // username and password sent from form 
     if (empty($errors)) {
         $hashedPass = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users VALUES (NULL,'$email','$hashedPass','$firstName','$lastName')";
+        $sql = "INSERT INTO users VALUES (NULL,'$email','$hashedPass','$firstName','$lastName',NULL, '0')";
         $statement = $db->prepare($sql);
         $statement->execute();
         $statement->closeCursor();
