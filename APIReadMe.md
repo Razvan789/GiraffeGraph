@@ -17,9 +17,12 @@ By using search, API users will be able to search the GiraffeGraph Database base
 
 #### Search by Title
 In order to search by title, the user must define the following GET variables:
->type = search\n
+>type = search
+>
 >searchType = Title
+>
 >searchTerm = * Word to search *
+>
 >authToken = * APIToken Here *
 
 Example: 
