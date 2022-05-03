@@ -1,5 +1,5 @@
 # Giraffe API  v0.1.0
-The Current State of the GiraffeAPI only supports retrieving items from the database.
+The Current State of the GiraffeAPI only supports retrieving items from the database. This API is based off of the Unsplash public API
 
 ## First Steps
 
@@ -58,11 +58,42 @@ Example:
 	`https://beldeanu.com/src/GiraffeAPI.php?authToken=APIToken&type=search&searchType=GID&searchTerm=13`
 	
 ### Random
-## How the token works
+Using Random, the API will return a specified amount of images from the database, if not specified the default value is 3. The specific GET variables for a random API call are as follows: 
 
-Each time a request is sent, your token must be sent as part of the request. This is done with the GET variable `authToken`.
+>type = random
+>
+>numOf = * Ammount of random images *
 
+Example:
+	In order to get 5 random images from the database the following url would be needed:
+	`https://beldeanu.com/src/GiraffeAPI.php?authToken=APIToken&type=random&numOf=5`
+	
 ## What gets Returned
+The API will return a JSON that contains the following for each image:
+
+> {
+>
+>GID: Gallery ID
+>
+>Image: Base64 encoding of Image
+>
+>Title: Image Title
+>
+>UID: ID of user that posted the image
+>
+>DateTime: A DateTime object for when the image was posted
+>
+>FirstName: Poster's FirstName
+>
+>LastName: Poster's Last Name
+>
+> }
+
+## Debugging Tool
+By adding the GET variable `view=1` and going to the website you can see the images that are returned rather than hard to read JSON. Using the search example to find anything posted by someone with the first name Anna and the debug tool active the URL will be as follows:
+
+	`https://beldeanu.com/src/GiraffeAPI.php?authToken=APIToken&type=search&searchType=User&searchTerm=Anna&view=1`
+
 
 
 
