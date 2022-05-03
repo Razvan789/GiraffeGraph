@@ -147,8 +147,8 @@ function updateCanvas() {
     console.log(base64);
 }
 
-function drawAnimal() {
-    var image = document.createElement("IMG");
+function drawAnimal(animalNum) {
+    image = new Image();
     image.src = "../assets/animals/" + animalNum + ".PNG";
     
     image.onload = function () {
