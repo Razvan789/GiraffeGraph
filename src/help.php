@@ -91,8 +91,7 @@ session_start();
         </blockquote>
         <h2 id="debugging-tool">Debugging Tool</h2>
         <p>By adding the GET variable <code>view=1</code> and going to the website you can see the images that are returned rather than hard to read JSON. Using the search example to find anything posted by someone with the first name Anna and the debug tool active the URL will be as follows:</p>
-        <pre><code>`http<span class="hljs-variable">s:</span>//beldeanu.<span class="hljs-keyword">com</span>/src/GiraffeAPI.php?authToken=APIToken&amp;<span class="hljs-built_in">type</span>=<span class="hljs-built_in">search</span>&amp;searchType=User&amp;searchTerm=Anna&amp;<span class="hljs-keyword">view</span>=<span class="hljs-number">1</span>`
-</code></pre>
+        <code>https://beldeanu.com/src/GiraffeAPI.php?authToken=APIToken&type=search&searchType=User&searchTerm=Anna&view=1</code>
     </div>
 </body>
 
