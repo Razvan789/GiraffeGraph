@@ -30,18 +30,6 @@ if (!isset($_SESSION['admin_user'])) {
     <?php include("navbar.php") ?>
     <div class="top-bar">
         <h1>Users:</h1>
-        <div class="search-bar">
-            <form action="" method="get">
-                <div class="input-group mb-3">
-                    <select class="dropdown-toggle form-select" style="flex:1;" name="searchType" aria-label="searchItem">
-                        <option value="Title" selected>UID</option>
-                        <option value="User">Name</option>
-                    </select>
-                    <input type="text" class="form-control" name="searchTerm" style="flex:5" aria-label="Text input with dropdown button">
-                    <input type="submit" class="btn btn-outline-primary" style="flex:1" value="Search">
-                </div>
-            </form>
-        </div>
     </div>
 
     <div style="margin: 0 30px;border:solid 2px black" class="table-responsive">

@@ -131,7 +131,7 @@ function checkPage($currPage)
             <?php include("scripts/php_scripts/messages.php") ?>
             <p>Create a new account <a href="login.php?page=2" class="clickable">here</a></p>
             <p>Forgot your password? <a href="resetPass.php" style="color:#e7db2f">Reset Password</a></p>
-            <button type="submit" name="login" class="btn btn-primary">Login</button>
+            <button type="submit" name="login" class="btn btn-warning">Login</button>
         </form>
         <!-- Register form----------------------------------------------------->
         <form action="" data-form="register" class="login-forms <?php checkPage(2) ?>" method="POST">
@@ -158,7 +158,7 @@ function checkPage($currPage)
             </div>
             <?php include("scripts/php_scripts/messages.php") ?>
             <p>Already have an account? <a href="login.php?page=1" class="clickable">Log in</a></p>
-            <button type="submit" name="register" class="btn btn-primary">Register</button>
+            <button type="submit" name="register" class="btn btn-warning">Register</button>
         </form>
 
         <div data-text="login" class="login-text <?php checkPage(1) ?>">

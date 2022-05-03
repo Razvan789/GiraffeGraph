@@ -73,7 +73,7 @@ function parseSearchType($type)
                         <option value="GID">GID</option>
                     </select>
                     <input type="text" class="form-control" name="searchTerm" style="flex:5" aria-label="Text input with dropdown button">
-                    <input type="submit" class="btn btn-outline-primary" style="flex:1" value="Search">
+                    <input type="submit" class="btn btn-outline-warning" style="flex:1" value="Search">
                 </div>
             </form>
         </div>
@@ -95,7 +95,7 @@ function parseSearchType($type)
                         <?php if ((isset($_SESSION['login_user']) && $_SESSION['login_user'] == $item['UID']) || isset($_SESSION['admin_user'])) : ?>
                             <form action="scripts/php_scripts/deleteCanvas.php" method="post">
                                 <input type="hidden" name="GID" value="<?php echo $item['GID'] ?>">
-                                <input type="submit" class="btn btn-primary" name="delete" value="Delete">
+                                <input type="submit" class="btn btn-warning" name="delete" value="Delete">
                             </form>
                         <?php endif ?>
                     </div>
