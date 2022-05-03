@@ -1,8 +1,5 @@
 <?php session_start();
-if(!isset($_SESSION['admin_user'])) {
-    echo "<div style='text-align:center;font-size:40px;padding: 200px'>Not using an admin account, please log into one <a href='login.php'>here</a></div>";
-    exit;
-}?>
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +12,11 @@ if(!isset($_SESSION['admin_user'])) {
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
 </head>
-
+<?php
+if(!isset($_SESSION['admin_user'])) {
+    echo "<div style='text-align:center;font-size:40px;padding: 200px'>Not using an admin account, please log into one <a href='login.php'>here</a></div>";
+    exit;
+}?>
 <body>
     <?php include("navbar.php") ?>
 </body>
