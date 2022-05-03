@@ -7,6 +7,7 @@ const colorSelected = document.querySelector("#color-picker");
 const sizeSelected = document.querySelector("#size-picker");
 const modalButton = document.querySelector('#open-modal-btn');
 const hiddenCanvasInput = document.querySelector("[data-target=canvas-hidden]");
+const startWithDom = document.querySelector("#startWith");
 function resizeCanvas() {
     if (window.innerWidth < 990) {
         canvas.width = window.innerWidth;
@@ -14,6 +15,14 @@ function resizeCanvas() {
     } else {
         canvas.height = window.innerHeight * .995;
         canvas.width = window.innerWidth * .995;
+    }
+}
+
+function parseStartWith(domElement) {
+    if (domElement.textContent > 9) {
+        return 0;
+    } else {
+        return parseInt(domElement.textContent);
     }
 }
 
@@ -26,7 +35,9 @@ window.addEventListener('load', () => {
     context.fillStyle = 'WhiteSmoke';
     context.fillRect(0, 0, canvas.width, canvas.height);
     let drawing = false;
-
+    if(startWithDom) {
+        drawAnimal(parseStartWith(startWithDom));
+    }
     function startPosition(e) {
         drawing = true;
         draw(e); // Allows sinle clicks to generate a dot on the canvas
@@ -50,6 +61,9 @@ window.addEventListener('load', () => {
     function clearCanvas() {
         context.fillStyle = 'WhiteSmoke';
         context.fillRect(0, 0, canvas.width, canvas.height);
+        if(startWithDom) {
+            drawAnimal(parseStartWith(startWithDom));
+        }
     }
     function draw(e) {
         if (!drawing) return;
@@ -131,4 +145,19 @@ function updateCanvas() {
     //sets the card that opened the canvas' modal to the new image
     document.querySelector('.current-opened').src = base64;
     console.log(base64);
+}
+
+function drawAnimal(animalNum) {
+    image = new Image();
+    image.src = "../assets/animals/" + animalNum + ".PNG";
+    
+    image.onload = function () {
+        if(image.width > canvas.width) {
+            context.drawImage(image, canvas.width/2 - image.width/2 * .8, canvas.height/2 - image.height/2 * .8, image.width * .8, image.height *.8);
+        } else {
+            context.drawImage(image, canvas.width/2 - image.width/2, canvas.height/2 - image.height/2);
+        }
+        console.log("In If");
+    }
+    console.log("Added animal");
 }

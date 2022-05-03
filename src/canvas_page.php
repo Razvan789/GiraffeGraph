@@ -17,9 +17,9 @@ include("scripts/php_scripts/session.php");
 </head>
 
 <body>
-    <div style="display:none;">
-        <?php include("navbar.php") ?>
-    </div>
+    <?php if(isset($_GET['startWith'])) :?>
+    <div id="startWith" style="display: none;"><?php echo $_GET['startWith'] ?></div>
+    <?php endif ?>
     <div class="canvas-main mobile-body">
         <div class="mini-nav">
             <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">&#9776</button>
