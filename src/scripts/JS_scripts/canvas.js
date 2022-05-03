@@ -149,7 +149,7 @@ function updateCanvas() {
 
 function drawAnimal(animalNum) {
     image = new Image();
-    image.src = url("../assets/animals/" + animalNum + ".PNG");
+    image.src = "../assets/animals/" + animalNum + ".PNG";
     
     image.onload = function () {
         if(image.width > canvas.width) {

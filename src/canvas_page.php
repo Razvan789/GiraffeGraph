@@ -14,14 +14,15 @@ include("scripts/php_scripts/session.php");
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="scripts/JS_scripts/canvas.js" defer></script>
-    <?php if(isset($_GET['startWith'])) :?>
-    <link rel="preload" href="../assets/animals/<?php echo $_GET['startWith']?>.png" as="image">
-    <?php endif ?>
+
 </head>
 
 <body>
-    <?php if(isset($_GET['startWith'])) :?>
-    <div id="startWith" style="display: none;"><?php echo $_GET['startWith'] ?></div>
+    <?php if (isset($_GET['startWith'])) : ?>
+        <div id="startWith" style="display: none;"><?php echo $_GET['startWith'] ?></div>
+        <div style="display: none;">
+        <img src="../assets/animals/<?php echo $_GET['startWith'] ?>.png" alt="temp">
+        </div>
     <?php endif ?>
     <div class="canvas-main mobile-body">
         <div class="mini-nav">
