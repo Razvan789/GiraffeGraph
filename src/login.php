@@ -5,7 +5,7 @@ $errors = [];
 $messages = [];
 $resetPassword = isset($_SESSION['reset_password']) ? $_SESSION['reset_password'] : "";
 
-if(isset($_SESSION['login_user'])) {
+if (isset($_SESSION['login_user'])) {
     header("location: home.php");
 }
 if (isset($_POST["login"])) {
@@ -29,6 +29,9 @@ if (isset($_POST["login"])) {
             $hashedPass = $row['Pass'];
             if (password_verify($mypassword, $hashedPass)) {
                 $_SESSION['login_user'] = $row['UID'];
+                if ($row['IsAdmin'] == 1) {
+                    $_SESSION['admin_user'] = true;
+                }
                 header("location: home.php");
             } else {
                 array_push($errors, "Your Login Name or Password is invalid");
@@ -160,15 +163,15 @@ function checkPage($currPage)
 
         <div data-text="login" class="login-text <?php checkPage(1) ?>">
             <p>GiraffeState started as a joke between two friends, a funny idea spawned from the creation of a goofy, five minute
-                blocky giraffe that got both of them laughing uncontrollably. It was the perfect project for a web development 
-                class and would let both of them use skills they'd be accumulating through an internship and for their degree. 
+                blocky giraffe that got both of them laughing uncontrollably. It was the perfect project for a web development
+                class and would let both of them use skills they'd be accumulating through an internship and for their degree.
                 Little did they know how much fun they'd have making it, and it has expanded into the site that you see today.
             </p>
-			
+
             <p>
-                This website is a fun way for people to create drawings of any kind and share them through the use of the gallery 
-                page. Without an account, you can take a look at the gallery page and see all kinds of images drawn by people 
-                from all different places and accounts. Explore your creativity and make fun, funny drawings to share with all 
+                This website is a fun way for people to create drawings of any kind and share them through the use of the gallery
+                page. Without an account, you can take a look at the gallery page and see all kinds of images drawn by people
+                from all different places and accounts. Explore your creativity and make fun, funny drawings to share with all
                 kinds of people!
             </p>
         </div>

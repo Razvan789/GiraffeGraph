@@ -36,7 +36,7 @@ function parseSearchType($type)
 {
     global $errors;
     //Stops SQL injection on the type
-    if (strcmp($type, "User") == 0 || strcmp($type, "Title") == 0 || strcmp($type, "GID") == 0) {
+    if (strcmp($type, "User") == 0 || strcmp($type, "Title") == 0 || strcmp($type, "GID") == 0 || strcmp($type, "UID") == 0 ) {
         return $type;
     } else {
         array_push($errors, "Error in search");
@@ -91,7 +91,7 @@ function parseSearchType($type)
                     <img src="<?php echo $item['Image'] ?>" class="card-img-top" alt="Img:<?php echo $item['GID'] ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $item['Title'] ?></h5>
-                        <?php if (isset($_SESSION['login_user']) && $_SESSION['login_user'] == $item['UID']) : ?>
+                        <?php if ((isset($_SESSION['login_user']) && $_SESSION['login_user'] == $item['UID']) || isset($_SESSION['admin_user'])) : ?>
                             <form action="scripts/php_scripts/deleteCanvas.php" method="post">
                                 <input type="hidden" name="GID" value="<?php echo $item['GID'] ?>">
                                 <input type="submit" class="btn btn-primary" name="delete" value="Delete">
