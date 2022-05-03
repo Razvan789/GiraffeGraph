@@ -6,7 +6,7 @@ $errors = [];
 if (isset($_GET['searchType']) && isset($_GET['searchTerm'])) {
     $searchType = parseSearchType($_GET['searchType']);
     //IF searching for int type
-    if (strcmp($searchType, "GID") == 0) {
+    if (strcmp($searchType, "GID") == 0 || strcmp($searchType, "UID") == 0) {
         $searchTerm = intval($_GET['searchTerm']);
         $sql = "SELECT gallery.*, users.FirstName, users.LastName FROM gallery inner join users on gallery.UID = users.UID  WHERE gallery.$searchType=$searchTerm";
         $statement = $db->prepare($sql);
