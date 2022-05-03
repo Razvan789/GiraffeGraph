@@ -31,6 +31,11 @@ if ($loggedIn) : ?>
                     <li class="nav-item">
                         <a class="nav-link" href="canvas_page.php">Start Drawing</a>
                     </li>
+                    <?php if(isset($_SESSION['admin_user'])):?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin_page.php">Admin Page</a>
+                    </li>
+                    <?php endif?>
                     <li class="nav-item">
                         <a class="btn btn-outline-danger" type="submit" href="scripts/php_scripts/logout.php">Logout</a>
                     </li>
