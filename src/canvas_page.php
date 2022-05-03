@@ -14,12 +14,16 @@ include("scripts/php_scripts/session.php");
     <link rel="stylesheet" href="stylesheets/style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="scripts/JS_scripts/canvas.js" defer></script>
+
 </head>
 
 <body>
-    <div style="display:none;">
-        <?php include("navbar.php") ?>
-    </div>
+    <?php if (isset($_GET['startWith'])) : ?>
+        <div id="startWith" style="display: none;"><?php echo $_GET['startWith'] ?></div>
+        <div style="display: none;">
+        <img src="../assets/animals/<?php echo $_GET['startWith'] ?>.PNG" alt="temp">
+        </div>
+    <?php endif ?>
     <div class="canvas-main mobile-body">
         <div class="mini-nav">
             <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">&#9776</button>

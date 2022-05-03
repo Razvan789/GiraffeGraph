@@ -18,7 +18,7 @@
     <body>
         <?php include("navbar.php") ?>
         <div class="main-body">
-                                    
+                            
         </div>
     </body>
 

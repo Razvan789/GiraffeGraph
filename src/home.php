@@ -25,10 +25,64 @@ include('scripts/php_scripts/session.php');
             <h4><a id="open-slider-btn" href="#">Start a new Document</a></h4>
             <div data-card-slider class="card-slider">
                 <div class="card-container">
-                    <div id="blank-card" onclick="location.href='canvas_page.php'" class="card border-dark mb-3 disabled">
+                    <div id="blank-card" onclick="location.href='canvas_page.php?startWith=0'" class="card border-dark mb-3 disabled">
                         <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
                         <div class="card-body">
                             <h5 class="card-title">Blank</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=1'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Gerald</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=2'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Ronald</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=3'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Edward</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=4'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Penelope</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=5'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Anthony</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=6'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Bart</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=7'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Antony</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=8'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Uga</h5>
+                        </div>
+                    </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=9'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Michael</h5>
                         </div>
                     </div>
                     <div id="blank-card" onclick="location.href='canvas_page.php'" class="card border-dark mb-3 disabled">
@@ -37,56 +91,6 @@ include('scripts/php_scripts/session.php');
                             <h5 class="card-title">More Coming Soon</h5>
                         </div>
                     </div>
-                    <!-- 
-                    <div class="card border-dark mb-3">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Giraffe</h5>
-                        </div>
-                    </div>
-                    <div class="card border-dark mb-3">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Rhino</h5>
-                        </div>
-                    </div>
-                    <div class="card border-dark mb-3">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Lion</h5>
-                        </div>
-                    </div>
-                    <div class="card border-dark mb-3">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Cheetah</h5>
-                        </div>
-                    </div>
-                    <div class="card border-dark mb-3">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Elephant</h5>
-                        </div>
-                    </div>
-                    <div class="card border-dark mb-3">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Meerkat</h5>
-                        </div>
-                    </div>
-                    <div class="card border-dark mb-3">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Warthog</h5>
-                        </div>
-                    </div>
-                    <div class="card border-dark mb-3">
-                        <img class="card-img-top" src="../assets/GriaffeStateLogoHEADSHOTblackOutline.png">
-                        <div class="card-body">
-                            <h5 class="card-title">Snake</h5>
-                        </div>
-                    </div>
-                     -->
                 </div>
 
             </div>

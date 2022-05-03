@@ -226,7 +226,7 @@ span.clickable {
 
 .center-self {
     margin: auto;
-    max-width: 80ch;
+    max-width: 100ch;
     min-width: 35ch;
     padding: 3ch;
 }
@@ -317,12 +317,37 @@ span.clickable {
     justify-content: space-between;
 }
 
-#giraffe_video {
-    align-content: center;
+#about-giraffegraph-header {
+    width: 60vw;
+    margin: auto;
+    align-items: center;
+    text-align: center; 
+    padding-top: 50px;
 }
 
 .about_display {
     width: 50vw;
     margin: auto;
     text-align: center;
+    padding-top: 50px;
+    padding: 15px;
+}
+
+.about_display p {
+    padding: 50px;
+}
+
+.about-img {
+    height: 850px;
+}
+
+.btn-spots {
+    background-color: #A68F6E;
+    border-color: #A68F6E;
+    color: #000;
+}
+
+.btn-spots:hover {
+    background-color: #b69e7b;
+    border-color: #b69e7b;
 }
