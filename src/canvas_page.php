@@ -52,7 +52,7 @@ include("scripts/php_scripts/session.php");
         </div>
         <canvas id="canvas"></canvas>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary bottom-right" data-bs-toggle="modal" data-bs-target="#titleModal">
+        <button type="button" id="saveCanv" class="btn btn-primary bottom-right" data-bs-toggle="modal" data-bs-target="#titleModal">
             Name your creation
         </button>
 
@@ -71,7 +71,7 @@ include("scripts/php_scripts/session.php");
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input type="submit" id="saveCanv" type="button" name="send-canvas" data-bs-dismiss="modal" class="btn btn-primary">
+                            <input type="submit" type="button" name="send-canvas" data-bs-dismiss="modal" class="btn btn-primary">
                         </div>
                     </form>
 
