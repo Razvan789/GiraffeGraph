@@ -57,12 +57,13 @@ function parseSearchType($type)
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
     <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+    <script src="scripts/JS_scripts/resposive.js" defer></script>
 </head>
 
 <body>
     <?php include("navbar.php") ?>
     <div class="top-bar">
-        <h1>Gallery</h1>
+        <h1 id="mobile-hidden">Gallery</h1>
         <div class="search-bar">
             <form action="" method="get">
                 <div class="input-group mb-3">
