@@ -21,7 +21,7 @@ include("scripts/php_scripts/session.php");
     <?php if (isset($_GET['startWith'])) : ?>
         <div id="startWith" style="display: none;"><?php echo $_GET['startWith'] ?></div>
         <div style="display: none;">
-        <img src="../assets/animals/<?php echo $_GET['startWith'] ?>.png" alt="temp">
+        <img src="../assets/animals/<?php echo $_GET['startWith'] ?>.PNG" alt="temp">
         </div>
     <?php endif ?>
     <div class="canvas-main mobile-body">
