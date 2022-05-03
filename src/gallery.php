@@ -95,7 +95,7 @@ function parseSearchType($type)
                         <?php if ((isset($_SESSION['login_user']) && $_SESSION['login_user'] == $item['UID']) || isset($_SESSION['admin_user'])) : ?>
                             <form action="scripts/php_scripts/deleteCanvas.php" method="post">
                                 <input type="hidden" name="GID" value="<?php echo $item['GID'] ?>">
-                                <input type="submit" class="btn btn-warning" name="delete" value="Delete">
+                                <input type="submit" class="btn btn-danger" name="delete" value="Delete">
                             </form>
                         <?php endif ?>
                     </div>
