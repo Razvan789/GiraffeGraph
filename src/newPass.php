@@ -29,7 +29,7 @@
                 <label for="floatingInput">Re-type Password</label>
             </div>
             <?php include('messages.php'); ?>
-            <input class="btn btn-primary" type="submit" name="new_pass">
+            <input class="btn btn-warning" type="submit" name="new_pass">
         </form>
     </div>
 </body>

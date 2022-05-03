@@ -32,7 +32,7 @@ include('scripts/php_scripts/app_logic.php');
                 <label for="floatingInput">Email address</label>
             </div>
             <?php include('messages.php'); ?>
-            <input class="btn btn-primary" type="submit" name="submit_email">
+            <input class="btn btn-warning" type="submit" name="submit_email">
         </form>
     </div>
 </body>
