@@ -94,9 +94,7 @@ include('scripts/php_scripts/session.php');
                 </div>
 
             </div>
-            <h4><a href="#"> Open Most Recent Giraffe</a></h4>
-            <h4><a href="#"> Upload a Giraffe</a></h4>
-            <h4><a href="./cloudDocuments_NA.html"> My Giraffes</a></h4>
+            <h4><a href="my_giraffes.php"> My Giraffes</a></h4>
         </div>
 
 			<div class="about-giraffestate">
