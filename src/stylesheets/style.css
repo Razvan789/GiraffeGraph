@@ -340,3 +340,14 @@ span.clickable {
 .about-img {
     height: 850px;
 }
+
+.btn-spots {
+    background-color: #A68F6E;
+    border-color: #A68F6E;
+    color: #000;
+}
+
+.btn-spots:hover {
+    background-color: #b69e7b;
+    border-color: #b69e7b;
+}

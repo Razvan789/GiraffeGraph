@@ -46,7 +46,7 @@ if (!isset($_SESSION['admin_user'])) {
 
     <div style="margin: 0 30px;border:solid 2px black" class="table-responsive">
         <table class="table table-striped align-middle">
-        <thead>
+            <thead>
                 <th scope="col">UID</th>
                 <th scope="col">Email</th>
                 <th scope="col">First Name</th>
@@ -56,17 +56,28 @@ if (!isset($_SESSION['admin_user'])) {
             </thead>
             <?php foreach ($users as $user) : ?>
                 <tr>
-                    <td><?php echo $user['UID']?></td>
-                    <td><?php echo $user['Email']?></td>
-                    <td><?php echo $user['FirstName']?></td>
-                    <td><?php echo $user['LastName']?></td>
-                    <td><?php echo $user['APIToken']?></td>
-                    <td><form action="POST">
-                        <input type="submit" class="btn btn-secondary" name="makeAdmin" value="Make Admin">
-                        <input type="submit" class="btn btn-secondary" name="resetPass" value="Reset Pass">
-                        <input type="submit" class="btn btn-danger" name="delete" value="Delete">
-
-                    </form></td>
+                    <td><?php echo $user['UID'] ?></td>
+                    <td><?php echo $user['Email'] ?></td>
+                    <td><?php echo $user['FirstName'] ?></td>
+                    <td><?php echo $user['LastName'] ?></td>
+                    <td><?php echo $user['APIToken'] ?></td>
+                    <td>
+                        <form action="scripts/php_scripts/admin_controls.php" method="POST">
+                            <input type="hidden" name="UID" value="<?php echo $user['UID']?>">
+                            <?php if ($user['IsAdmin'] != 1) : ?>
+                                <input type="submit" class="btn btn-warning" name="makeAdmin" value="Make Admin">
+                            <?php endif ?>
+                            <input type="submit" class="btn btn-spots" name="resetPass" value="Reset Pass">
+                            <?php if($user['APIToken'] == NULL):?>
+                            <input type="submit" class="btn btn-warning" name="genToken" value="Generate API Token">
+                            <?php else: ?>
+                            <input type="submit" class="btn btn-warning" name="revokeToken" value="Revoke API Token">
+                            <?php endif ?>
+                            <?php if($user['UID'] != 1):?>
+                            <input type="submit" class="btn btn-danger" name="ban" value="Ban">
+                            <?php endif?>
+                        </form>
+                    </td>
                 </tr>
             <?php endforeach ?>
         </table>
