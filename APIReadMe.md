@@ -54,8 +54,8 @@ In order to search by title, the user must define the following GET variables:
 >authToken = * APIToken Here *
 
 Example: 
-	In order to search for any posted by someone with the name "Anna" the url would look like:
-	`https://beldeanu.com/src/GiraffeAPI.php?authToken=APIToken&type=search&searchType=User&searchTerm=Anna`
+	In order to search for any post with the GID of 13 the url would look like:
+	`https://beldeanu.com/src/GiraffeAPI.php?authToken=APIToken&type=search&searchType=GID&searchTerm=13`
 	
 ### Random
 ## How the token works
