@@ -85,6 +85,12 @@ include('scripts/php_scripts/session.php');
                             <h5 class="card-title">Michael</h5>
                         </div>
                     </div>
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=10'">
+                        <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
+                        <div class="card-body">
+                            <h5 class="card-title">Susan</h5>
+                        </div>
+                    </div>
                     <div id="blank-card" onclick="location.href='canvas_page.php'" class="card border-dark mb-3 disabled">
                         <img class="card-img-top" src="https://media.istockphoto.com/vectors/wip-sign-icon-vector-id972656164?k=20&m=972656164&s=170667a&w=0&h=ci0boYR1pCvxw8PSJ-vlrGdDrK7LEYrID1h_TaWSv7k=">
                         <div class="card-body">
