@@ -19,7 +19,7 @@ function resizeCanvas() {
 }
 
 function parseStartWith(domElement) {
-    if (domElement.textContent > 9) {
+    if (domElement.textContent > 10) {
         return 0;
     } else {
         return parseInt(domElement.textContent);
