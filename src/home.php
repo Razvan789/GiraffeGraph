@@ -85,7 +85,7 @@ include('scripts/php_scripts/session.php');
                             <h5 class="card-title">Michael</h5>
                         </div>
                     </div>
-                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=10'">
+                    <div class="card border-dark mb-3" onclick="location.href='canvas_page.php?startWith=11'">
                         <img class="card-img-top" src="../assets/GriaffeGraphLogoHEADSHOTblackOutline.png">
                         <div class="card-body">
                             <h5 class="card-title">Susan</h5>
