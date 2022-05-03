@@ -29,7 +29,7 @@ if (isset($_POST["login"])) {
             $hashedPass = $row['Pass'];
             if (password_verify($mypassword, $hashedPass)) {
                 $_SESSION['login_user'] = $row['UID'];
-                if ($row['IsAdmin'] == 1) {
+                if ($row['IsAdmin'] != 1) {
                     $_SESSION['admin_user'] = true;
                 }
                 header("location: home.php");
