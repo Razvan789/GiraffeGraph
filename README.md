@@ -24,6 +24,10 @@ Bootstrap v5.0, masonry for bootstrap
 ### Starter code 
 There was no starter code used, all of the code you see was written by the group members.
 
+
+### API
+I also developed an API for others use be able to use the images and information from the server, there is a seprate readme for it, and it can be found on the help page of the site.
+
 ### Lessons Learned
 Over the course of this project one of the biggest lessons learned was how important planning is, as we didn't have the most concrete plan set for everything as early on we were unsure the full vision of the site. The lack of a plan caused us to have to make many changes to the documentation and database structure each time something had to be changed or we wanted to add a new feature.
 
