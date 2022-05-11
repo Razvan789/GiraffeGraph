@@ -14,8 +14,8 @@ https://www.beldeanu.com/ (/src/login.php it will auto redirect you)
 Create an account and login, once logged in click an animal face to start drawings and the rest should be self explanitory. The gallery page is used to see all drawings posted, and it has a working search bar.
 
 ### Browsers
-Chrome for Windows 11/Windows 10/Andriod v.101.0.4951.44+
-Firefox for Windows 11 v100.0
+Chrome for Windows 11/Windows 10/Andriod v.101.0.4951.44+<br>
+Firefox for Windows 11 v100.0<br>
 Safari for IPhone 13 IOS version 15.4.1
 
 ### Frameworks and libraries
